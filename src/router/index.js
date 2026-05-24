@@ -1,0 +1,29 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import Writing from '../views/Writing.vue'
+import MyContent from '../views/MyContent.vue'
+import MyPosts from '../views/MyPosts.vue'
+import Forum from '../views/Forum.vue'
+import PostDetail from '../views/PostDetail.vue'
+import AssistantSettings from '../views/AssistantSettings.vue'
+import Achievements from '../views/Achievements.vue'
+import NovelGenerator from '../views/NovelGenerator.vue'
+
+
+const routes = [
+  { path: '/', redirect: '/writing' },
+  { path: '/writing', component: Writing },
+  { path: '/my-content', component: MyContent },
+  { path: '/my-posts', component: MyPosts },
+  { path: '/forum', component: Forum },
+  { path: '/post/:id', name: 'PostDetail', component: PostDetail },  
+  { path: '/assistant', component: AssistantSettings },
+  { path: '/achievements', component: Achievements },
+  { path: '/novel', component: NovelGenerator }
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+export default router
