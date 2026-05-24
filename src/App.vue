@@ -1,62 +1,70 @@
 <template>
+  <!-- 未登录时显示登录界面 -->
   <div v-if="!user" class="login-container">
-    <div class="login-card">
+    <!-- 登录界面保持不变 -->
+    <div class="login-card pixel-modal">
       <div class="login-header">
         <div class="login-icon">📝✨</div>
-        <h1>梦镜</h1>
-        <p>从梦境到小说的AI创作伴侣</p>
+        <h1 class="pixel-title">梦镜</h1>
+        <p class="pixel-subtitle">从梦境到小说的AI创作伴侣</p>
       </div>
       
       <div class="login-tabs">
-        <button :class="['tab-btn', isLogin ? 'active' : '']" @click="isLogin = true">登录</button>
-        <button :class="['tab-btn', !isLogin ? 'active' : '']" @click="isLogin = false">注册</button>
+        <button :class="['pixel-btn', isLogin ? 'pixel-btn-primary' : '']" @click="isLogin = true">登录</button>
+        <button :class="['pixel-btn', !isLogin ? 'pixel-btn-primary' : '']" @click="isLogin = false">注册</button>
       </div>
 
       <form @submit.prevent="handleAuth">
         <div class="input-group">
           <label>邮箱</label>
-          <input type="email" v-model="email" placeholder="your@email.com" required>
+          <input type="email" v-model="email" class="pixel-input" placeholder="your@email.com" required>
         </div>
         <div class="input-group">
           <label>密码</label>
-          <input type="password" v-model="password" placeholder="至少6位" required>
+          <input type="password" v-model="password" class="pixel-input" placeholder="至少6位" required>
         </div>
-        <button type="submit" class="btn-submit">{{ isLogin ? '登录' : '注册' }}</button>
+        <button type="submit" class="pixel-btn pixel-btn-primary" style="width: 100%;">{{ isLogin ? '登录' : '注册' }}</button>
       </form>
 
       <p v-if="errorMsg" class="error-msg">{{ errorMsg }}</p>
     </div>
   </div>
 
-  <div v-else>
-    <nav class="nav">
-      <div class="nav-inner">
-        <div class="logo">
-          <span>📝✨</span>
-          <span>梦镜</span>
+  <!-- 登录后显示主界面，带全局背景 -->
+  <GlobalBackground v-else>
+    <div class="app-content">
+      <nav class="nav">
+        <div class="nav-inner">
+          <div class="logo">
+            <span>📝✨</span>
+            <span>梦镜</span>
+          </div>
+          <div class="nav-links">
+            <router-link to="/writing">📝 写作</router-link>
+            <router-link to="/my-content">📚 我的内容</router-link>
+            <router-link to="/my-posts">📋 我的帖子</router-link>
+            <router-link to="/forum">🌐 广场</router-link>
+            <router-link to="/stickers">🎨 贴纸</router-link>
+            <router-link to="/assistant">🤖 助手</router-link>
+            <router-link to="/achievements">🏆 成就</router-link>
+            <router-link to="/novel">✨ AI</router-link>
+            <router-link to="/background">🖼️ 背景</router-link>
+          </div>
+          <div class="nav-user">
+            <span>{{ user.email }}</span>
+            <button @click="logout" class="logout-btn">退出</button>
+          </div>
         </div>
-        <div class="nav-links">
-          <router-link to="/writing">📝 写作</router-link>
-          <router-link to="/my-content">📚 我的内容</router-link>
-          <router-link to="/my-posts">📋 我的帖子</router-link>
-          <router-link to="/forum">🌐 作品广场</router-link>
-          <router-link to="/assistant">🎨 我的助手</router-link>
-          <router-link to="/achievements">🏆 成就</router-link>
-          <router-link to="/novel">✨ AI 创作</router-link>
-        </div>
-        <div class="nav-user">
-          <span>{{ user.email }}</span>
-          <button @click="logout" class="logout-btn">退出</button>
-        </div>
+      </nav>
+      <div class="container" style="padding: 24px;">
+        <router-view />
       </div>
-    </nav>
-    <div class="container" style="padding: 32px 24px;">
-      <router-view />
     </div>
-  </div>
+  </GlobalBackground>
 </template>
 
 <style scoped>
+/* 样式保持不变 */
 .logo {
   display: flex;
   align-items: center;
@@ -83,7 +91,6 @@
   font-size: 14px;
   padding: 6px 12px;
   border-radius: 8px;
-  transition: background 0.2s;
 }
 
 .logout-btn:hover {
@@ -139,19 +146,18 @@
   margin-bottom: 32px;
 }
 
-.tab-btn {
+.pixel-btn {
   flex: 1;
   padding: 12px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   border: none;
   border-radius: 12px;
   background: #f3f4f6;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
-.tab-btn.active {
+.pixel-btn-primary {
   background: #6366f1;
   color: white;
 }
@@ -167,30 +173,12 @@
   color: #374151;
 }
 
-.input-group input {
+.pixel-input {
   width: 100%;
   padding: 12px 16px;
   font-size: 16px;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-}
-
-.btn-submit {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-submit:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .error-msg {
@@ -201,7 +189,8 @@
 }
 
 .nav {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: 0 24px;
   position: sticky;
   top: 0;
@@ -215,24 +204,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
+  min-height: 64px;
 }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #4b5563;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 15px;
   transition: color 0.2s;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -244,11 +235,47 @@
   margin: 0 auto;
   padding: 0 24px;
 }
+
+.app-content {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* 响应式导航栏 */
+@media (max-width: 900px) {
+  .nav-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 0;
+    gap: 12px;
+  }
+  
+  .nav-links {
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .nav-user {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 8px;
+  }
+  
+  .nav-links a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
 </style>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { supabase } from './lib/supabase.js'
+import GlobalBackground from './components/GlobalBackground.vue'
 
 const user = ref(null)
 const email = ref('')

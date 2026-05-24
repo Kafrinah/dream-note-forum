@@ -1,7 +1,7 @@
 <template>
   <div class="achievements-page">
     <h1 class="page-title">🏆 成就系统</h1>
-    <p class="page-subtitle">完成挑战，解锁成就</p>
+    <p class="page-subtitle">完成挑战，解锁成就。点击已完成的成就领取奖励！</p>
 
     <div class="stats-card">
       <div class="stat-item">
@@ -31,7 +31,7 @@
         v-for="ach in achievements" 
         :key="ach.id" 
         class="achievement-card"
-        :class="{ unlocked: ach.unlocked }"
+        :class="{ unlocked: ach.unlocked, claimed: ach.claimed }"
       >
         <div class="achievement-icon">
           {{ getAchievementIcon(ach) }}
@@ -44,7 +44,24 @@
           </div>
           <span class="progress-text">{{ ach.current }} / {{ ach.target }}</span>
         </div>
-        <div v-if="ach.unlocked" class="unlocked-badge">✅</div>
+        <div class="achievement-action">
+          <div v-if="ach.unlocked && !ach.claimed" class="reward-badge">
+            🎁 奖励：{{ ach.reward_value }} 个贴纸位
+          </div>
+          <button 
+            v-if="ach.unlocked && !ach.claimed" 
+            @click="claimReward(ach)" 
+            class="claim-btn"
+          >
+            领取奖励
+          </button>
+          <div v-else-if="ach.claimed" class="claimed-badge">
+            ✅ 已领取
+          </div>
+          <div v-else-if="!ach.unlocked" class="locked-badge">
+            🔒 未完成
+          </div>
+        </div>
       </div>
     </div>
 
@@ -79,7 +96,7 @@
 }
 
 .page-subtitle {
-  font-size: 18px;
+  font-size: 16px;
   color: #6b7280;
   margin-bottom: 32px;
 }
@@ -118,7 +135,7 @@
 
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 16px;
 }
 
@@ -136,6 +153,11 @@
 .achievement-card.unlocked {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
   border-color: #f59e0b;
+}
+
+.achievement-card.claimed {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-color: #10b981;
 }
 
 .achievement-icon {
@@ -173,20 +195,55 @@
   transition: width 0.3s;
 }
 
-.achievement-card.unlocked .progress-fill {
-  background: #f59e0b;
-}
-
 .progress-text {
   font-size: 12px;
   color: #6b7280;
 }
 
-.unlocked-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  font-size: 20px;
+.achievement-action {
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.reward-badge {
+  font-size: 11px;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 4px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.claim-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.claim-btn:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+.claimed-badge {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.locked-badge {
+  font-size: 12px;
+  color: #9ca3af;
 }
 
 .notification {
@@ -242,6 +299,7 @@ const achievements = ref([])
 const stats = ref({ diaryCount: 0, dreamCount: 0, postCount: 0, likesReceived: 0 })
 const newAchievements = ref([])
 const user = ref(null)
+const claimedRewards = ref([])
 
 const getAchievementIcon = (ach) => {
   if (ach.name.includes('日记')) return '📝'
@@ -250,6 +308,95 @@ const getAchievementIcon = (ach) => {
   if (ach.name.includes('人气') || ach.name.includes('万人迷')) return '❤️'
   if (ach.name.includes('捕梦')) return '🪄'
   return '🏆'
+}
+
+// 加载已领取的奖励
+const loadClaimedRewards = async () => {
+  const { data } = await supabase
+    .from('user_rewards')
+    .select('achievement_id')
+    .eq('user_id', user.value.id)
+  claimedRewards.value = data?.map(r => r.achievement_id) || []
+}
+
+// 创建贴纸位
+const createStickerSlot = async (slotIndex) => {
+  const { data: existing } = await supabase
+    .from('sticker_slots')
+    .select('id')
+    .eq('user_id', user.value.id)
+    .eq('slot_index', slotIndex)
+    .maybeSingle()
+  
+  if (existing) return false
+  
+  const { error } = await supabase
+    .from('sticker_slots')
+    .insert({
+      user_id: user.value.id,
+      slot_index: slotIndex,
+      name: `贴纸位 ${slotIndex}`
+    })
+  
+  return !error
+}
+
+// 领取奖励
+const claimReward = async (ach) => {
+  // 检查是否已领取
+  const { data: existing } = await supabase
+    .from('user_rewards')
+    .select('*')
+    .eq('user_id', user.value.id)
+    .eq('achievement_id', ach.id)
+    .maybeSingle()
+  
+  if (existing) {
+    alert('已经领取过了')
+    return
+  }
+  
+  // 获取当前最大的贴纸位索引
+  const { data: slots } = await supabase
+    .from('sticker_slots')
+    .select('slot_index')
+    .eq('user_id', user.value.id)
+    .order('slot_index', { ascending: false })
+    .limit(1)
+  
+  const nextIndex = (slots && slots[0] ? slots[0].slot_index : 0) + 1
+  
+  // 创建贴纸位
+  const slotCount = ach.reward_value || 1
+  let successCount = 0
+  
+  for (let i = 0; i < slotCount; i++) {
+    const success = await createStickerSlot(nextIndex + i)
+    if (success) successCount++
+  }
+  
+  if (successCount > 0) {
+    // 记录已领取
+    await supabase
+      .from('user_rewards')
+      .insert({
+        user_id: user.value.id,
+        achievement_id: ach.id
+      })
+    
+    // 更新本地状态
+    claimedRewards.value.push(ach.id)
+    achievements.value = achievements.value.map(a => {
+      if (a.id === ach.id) {
+        return { ...a, claimed: true }
+      }
+      return a
+    })
+    
+    alert(`领取成功！获得 ${successCount} 个贴纸位`)
+  } else {
+    alert('领取失败')
+  }
 }
 
 const loadData = async () => {
@@ -264,8 +411,15 @@ const loadData = async () => {
     }, 5000)
   }
   
-  // 获取成就列表
-  achievements.value = await getAchievementsWithStatus(user.value.id)
+  // 获取成就列表（带领取状态）
+  const rawAchievements = await getAchievementsWithStatus(user.value.id)
+  await loadClaimedRewards()
+  
+  achievements.value = rawAchievements.map(ach => ({
+    ...ach,
+    claimed: claimedRewards.value.includes(ach.id),
+    reward_value: 1
+  }))
   
   // 获取统计数据
   stats.value = await getUserStats(user.value.id)

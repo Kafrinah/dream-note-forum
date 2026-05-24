@@ -7,7 +7,8 @@ import PostDetail from '../views/PostDetail.vue'
 import AssistantSettings from '../views/AssistantSettings.vue'
 import Achievements from '../views/Achievements.vue'
 import NovelGenerator from '../views/NovelGenerator.vue'
-
+import StickerSlots from '../views/StickerSlots.vue'
+import BackgroundEditor from '../views/BackgroundEditor.vue'
 
 const routes = [
   { path: '/', redirect: '/writing' },
@@ -18,7 +19,9 @@ const routes = [
   { path: '/post/:id', name: 'PostDetail', component: PostDetail },  
   { path: '/assistant', component: AssistantSettings },
   { path: '/achievements', component: Achievements },
-  { path: '/novel', component: NovelGenerator }
+  { path: '/novel', component: NovelGenerator },
+  { path: '/stickers', component: StickerSlots },
+  { path: '/background', component: BackgroundEditor }
 ]
 
 const router = createRouter({
