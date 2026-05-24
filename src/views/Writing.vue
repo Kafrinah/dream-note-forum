@@ -308,6 +308,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '../lib/supabase.js'
 import { generateCroppedAvatarSVG } from '../lib/avatarHelper.js'
+import { findFirstBadWord } from '../lib/badWords.js'
 
 const scenes = [
   { value: 'diary', name: '日记', icon: '📝' },
@@ -348,6 +349,19 @@ const dialogAvatarSvg = computed(() => {
 const saveEntry = async () => {
   if (!title.value || !content.value) {
     alert('请填写标题和内容')
+    return
+  }
+  
+  // 敏感词检测
+  const titleBadWord = await findFirstBadWord(title.value)
+  if (titleBadWord) {
+    alert(`标题包含敏感词「${titleBadWord}」，请修改后重试`)
+    return
+  }
+  
+  const contentBadWord = await findFirstBadWord(content.value)
+  if (contentBadWord) {
+    alert(`内容包含敏感词「${contentBadWord}」，请修改后重试`)
     return
   }
 

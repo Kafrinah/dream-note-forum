@@ -217,6 +217,7 @@
 import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabase.js'
 import { generateNovel as callGenerateNovel } from '../lib/ai.js'
+import { findFirstBadWord } from '../lib/badWords.js'
 
 const user = ref(null)
 const notes = ref([])
@@ -281,6 +282,19 @@ const publishToForum = async () => {
   
   const title = prompt('请输入帖子标题', `🤖 AI 小说 - ${new Date().toLocaleDateString()}`)
   if (!title) return
+  
+  // 敏感词检测
+  const titleBadWord = await findFirstBadWord(title)
+  if (titleBadWord) {
+    alert(`标题包含敏感词「${titleBadWord}」，请修改后重试`)
+    return
+  }
+  
+  const contentBadWord = await findFirstBadWord(novel.value)
+  if (contentBadWord) {
+    alert(`内容包含敏感词「${contentBadWord}」，请修改后重试`)
+    return
+  }
 
   const { error } = await supabase.from('forum_posts').insert({
     user_id: user.value.id,
@@ -295,6 +309,7 @@ const publishToForum = async () => {
     alert('发布失败: ' + error.message)
   }
 }
+
 
 onMounted(async () => {
   const { data: { user: currentUser } } = await supabase.auth.getUser()

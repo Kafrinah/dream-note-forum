@@ -314,6 +314,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { supabase } from '../lib/supabase.js'
+import { containsBadWords, findFirstBadWord } from '../lib/badWords.js'
 
 const posts = ref([])
 const showNewPost = ref(false)
@@ -361,6 +362,19 @@ const loadPosts = async () => {
 const publishPost = async () => {
   if (!newPostTitle.value || !newPostContent.value) {
     alert('请填写完整')
+    return
+  }
+  
+  // 敏感词检测
+  const titleBadWord = await findFirstBadWord(newPostTitle.value)
+  if (titleBadWord) {
+    alert(`标题包含敏感词「${titleBadWord}」，请修改后重试`)
+    return
+  }
+  
+  const contentBadWord = await findFirstBadWord(newPostContent.value)
+  if (contentBadWord) {
+    alert(`内容包含敏感词「${contentBadWord}」，请修改后重试`)
     return
   }
   

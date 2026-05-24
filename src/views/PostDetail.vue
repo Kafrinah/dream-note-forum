@@ -187,6 +187,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { supabase } from '../lib/supabase.js'
+import { containsBadWords, findFirstBadWord } from '../lib/badWords.js'
 
 const route = useRoute()
 const post = ref(null)
@@ -286,6 +287,13 @@ const toggleLike = async () => {
 // 添加评论
 const addComment = async () => {
   if (!newComment.value) return
+  
+  // 敏感词检测
+  const badWord = await findFirstBadWord(newComment.value)
+  if (badWord) {
+    alert(`评论包含敏感词「${badWord}」，请修改后重试`)
+    return
+  }
   
   const { error } = await supabase.from('forum_comments').insert([{
     post_id: post.value.id,
