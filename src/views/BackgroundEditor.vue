@@ -89,6 +89,35 @@
 </template>
 
 <style scoped>
+
+/* 背景编辑器响应式 */
+@media (max-width: 768px) {
+  .background-canvas {
+    min-height: 400px;
+  }
+  
+  .sticker-content {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .sticker-controls {
+    top: -35px;
+  }
+  
+  .control-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticker-content {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .page-title {
   font-size: 42px;
   font-weight: 800;

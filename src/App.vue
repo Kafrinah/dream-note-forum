@@ -1,7 +1,6 @@
 <template>
   <!-- 未登录时显示登录界面 -->
   <div v-if="!user" class="login-container">
-    <!-- 登录界面保持不变 -->
     <div class="login-card pixel-modal">
       <div class="login-header">
         <div class="login-icon">📝✨</div>
@@ -40,15 +39,21 @@
             <span>梦镜</span>
           </div>
           <div class="nav-links">
-            <router-link to="/writing">📝 写作</router-link>
-            <router-link to="/my-content">📚 我的内容</router-link>
-            <router-link to="/my-posts">📋 我的帖子</router-link>
+            <router-link to="/writing">📝 写作</router-link>        
             <router-link to="/forum">🌐 广场</router-link>
-            <router-link to="/stickers">🎨 贴纸</router-link>
-            <router-link to="/assistant">🤖 助手</router-link>
-            <router-link to="/achievements">🏆 成就</router-link>
             <router-link to="/novel">✨ AI</router-link>
-            <router-link to="/background">🖼️ 背景</router-link>
+            
+            <div class="dropdown">
+              <span class="dropdown-trigger">🎨 我的</span>
+              <div class="dropdown-menu">
+                <router-link to="/my-content">📚 我的内容</router-link>
+                <router-link to="/my-posts">📋 我的帖子</router-link>
+                <router-link to="/stickers">🎨 贴纸</router-link>
+                <router-link to="/assistant">🤖 助手</router-link>
+                <router-link to="/achievements">🏆 成就</router-link>
+                <router-link to="/background">🖼️ 背景</router-link>
+              </div> 
+            </div>
           </div>
           <div class="nav-user">
             <span>{{ user.email }}</span>
@@ -75,6 +80,63 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* 下拉菜单 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-trigger {
+  padding: 8px 16px;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.dropdown-trigger:hover {
+  background: #f1f5f9;
+  color: #6366f1;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 160px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: #475569;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.1s;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f5f9;
+  color: #6366f1;
 }
 
 .nav-user {
@@ -241,35 +303,63 @@
   position: relative;
 }
 
-/* 响应式导航栏 */
-@media (max-width: 900px) {
+/* 导航栏响应式 */
+@media (max-width: 768px) {
   .nav-inner {
     flex-direction: column;
     height: auto;
-    padding: 12px 0;
+    padding: 12px 16px;
     gap: 12px;
   }
   
   .nav-links {
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-  }
-  
-  .nav-user {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav-links {
     gap: 8px;
   }
   
-  .nav-links a {
-    font-size: 12px;
-    padding: 4px 8px;
+  .nav-links a, .dropdown-trigger {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .nav-user {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding-left: 16px;
+    margin-top: 4px;
+  }
+  
+  .dropdown-menu a {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .dropdown-trigger {
+    margin-bottom: 4px;
   }
 }
+
+@media (max-width: 480px) {
+  .nav-links a, .dropdown-trigger {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  
+  .logo span:last-child {
+    font-size: 16px;
+  }
+}
+
 </style>
 
 <script setup>

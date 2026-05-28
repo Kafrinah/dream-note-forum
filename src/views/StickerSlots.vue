@@ -22,7 +22,6 @@
         </div>
       </div>
       
-      <!-- 空贴纸位提示 -->
       <div v-if="slots.length === 0" class="empty-slots">
         还没有贴纸位，完成成就后点击领取奖励获得
       </div>
@@ -51,6 +50,20 @@
 </template>
 
 <style scoped>
+
+/* 贴纸位响应式 */
+@media (max-width: 768px) {
+  .slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  
+  .slot-preview {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 .page-title {
   font-size: 42px;
   font-weight: 800;
@@ -257,6 +270,7 @@ const loadSlots = async () => {
 }
 
 const openEditor = (slot) => {
+  console.log('打开编辑器 - 贴纸位:', slot)
   editingSlot.value = { ...slot }
 }
 
@@ -271,24 +285,34 @@ const saveSticker = (pixelData) => {
 
 const saveStickerAndClose = async () => {
   if (!pendingSaveData.value) {
+    console.log('没有待保存的数据')
     closeEditor()
     return
   }
   
-  const { error } = await supabase
+  console.log('保存贴纸 - 贴纸位ID:', editingSlot.value.id)
+  console.log('保存贴纸 - 贴纸位索引:', editingSlot.value.slot_index)
+  console.log('保存贴纸 - 数据长度:', pendingSaveData.value.length)
+  
+  const { data, error } = await supabase
     .from('sticker_slots')
     .update({
       pixel_data: pendingSaveData.value,
       updated_at: new Date()
     })
     .eq('id', editingSlot.value.id)
+    .select()  // 添加 .select() 看返回的数据
+  
+  console.log('更新结果:', { data, error })
   
   if (!error) {
+    console.log('保存成功，返回数据:', data)
     closeEditor()
     await loadSlots()
     alert('保存成功！')
   } else {
-    alert('保存失败')
+    console.error('保存失败:', error)
+    alert('保存失败: ' + error.message)
   }
 }
 

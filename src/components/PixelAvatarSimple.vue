@@ -29,6 +29,7 @@
       <div class="tool-group">
         <button @click="clearCanvas" class="tool-btn">🗑️ 清空</button>
         <button @click="autoDetectBorder" class="tool-btn">🔍 识别边框</button>
+        <button @click="save" class="tool-btn btn-primary">💾 保存</button>
       </div>
     </div>
 
@@ -109,6 +110,11 @@
   background: #6366f1;
   color: white;
   border-color: #6366f1;
+}
+
+.btn-primary {
+  background: #10b981;
+  color: white;
 }
 
 .pixel-canvas-wrapper {
@@ -324,6 +330,7 @@ const save = () => {
   for (let i = 0; i < size; i++) {
     flatPixels.push(...pixels.value[i])
   }
+  console.log('PixelAvatarSimple 保存，数据长度:', flatPixels.length)
   emit('save', JSON.stringify(flatPixels))
 }
 
