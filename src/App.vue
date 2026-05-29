@@ -39,12 +39,12 @@
             <span>梦镜</span>
           </div>
           <div class="nav-links">
-            <router-link to="/writing">📝 写作</router-link>        
-            <router-link to="/forum">🌐 广场</router-link>
-            <router-link to="/novel">✨ AI</router-link>
-            
+            <router-link to="/writing">⚪ 写作</router-link>        
+            <router-link to="/forum">⚪ 广场</router-link>
+            <router-link to="/novel">⚪ AI</router-link>
+             
             <div class="dropdown" :class="{ 'mobile-open': mobileDropdownOpen }">
-              <span class="dropdown-trigger" @click="toggleMobileDropdown">🎨 我的</span>
+              <span class="dropdown-trigger" @click="toggleMobileDropdown">⚪ 我的</span>
               <div class="dropdown-menu" v-show="!isMobile || mobileDropdownOpen">
                 <router-link to="/my-content" @click="closeMobileDropdown">📚 我的内容</router-link>
                 <router-link to="/my-posts" @click="closeMobileDropdown">📋 我的帖子</router-link>
