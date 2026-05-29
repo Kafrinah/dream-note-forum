@@ -1,4 +1,4 @@
-    <template>
+<template>
   <!-- 未登录时显示登录界面 -->
   <div v-if="!user" class="login-container">
     <div class="login-card pixel-modal">
@@ -43,16 +43,16 @@
             <router-link to="/forum">🌐 广场</router-link>
             <router-link to="/novel">✨ AI</router-link>
             
-            <div class="dropdown">
-              <span class="dropdown-trigger">🎨 我的</span>
-              <div class="dropdown-menu">
-                <router-link to="/my-content">📚 我的内容</router-link>
-                <router-link to="/my-posts">📋 我的帖子</router-link>
-                <router-link to="/stickers">🎨 贴纸</router-link>
-                <router-link to="/assistant">🤖 助手</router-link>
-                <router-link to="/achievements">🏆 成就</router-link>
-                <router-link to="/background">🖼️ 背景</router-link>
-              </div> 
+            <div class="dropdown" :class="{ 'mobile-open': mobileDropdownOpen }">
+              <span class="dropdown-trigger" @click="toggleMobileDropdown">🎨 我的</span>
+              <div class="dropdown-menu" v-show="!isMobile || mobileDropdownOpen">
+                <router-link to="/my-content" @click="closeMobileDropdown">📚 我的内容</router-link>
+                <router-link to="/my-posts" @click="closeMobileDropdown">📋 我的帖子</router-link>
+                <router-link to="/stickers" @click="closeMobileDropdown">🎨 贴纸</router-link>
+                <router-link to="/assistant" @click="closeMobileDropdown">🤖 助手</router-link>
+                <router-link to="/achievements" @click="closeMobileDropdown">🏆 成就</router-link>
+                <router-link to="/background" @click="closeMobileDropdown">🖼️ 背景</router-link>
+              </div>
             </div>
           </div>
           <div class="nav-user">
@@ -82,7 +82,7 @@
   color: transparent;
 }
 
-/* 下拉菜单 */
+/* 下拉菜单 - 桌面端 */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -120,23 +120,53 @@
   z-index: 100;
 }
 
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
+/* 桌面端 hover 展开 */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-.dropdown-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: #475569;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.1s;
-}
-
-.dropdown-menu a:hover {
-  background: #f1f5f9;
-  color: #6366f1;
+/* 移动端样式 - 保持一行 */
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .nav-links {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    background: white;
+    min-width: 160px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+  }
+  
+  .dropdown.mobile-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .dropdown-menu a {
+    padding: 10px 16px;
+  }
 }
 
 .nav-user {
@@ -267,13 +297,13 @@
   justify-content: space-between;
   align-items: center;
   min-height: 64px;
+  gap: 16px;
 }
 
 .nav-links {
   display: flex;
   gap: 20px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -302,68 +332,10 @@
   min-height: 100vh;
   position: relative;
 }
-
-/* 导航栏响应式 */
-@media (max-width: 768px) {
-  .nav-inner {
-    flex-direction: column;
-    height: auto;
-    padding: 12px 16px;
-    gap: 12px;
-  }
-  
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  .nav-links a, .dropdown-trigger {
-    padding: 6px 12px;
-    font-size: 13px;
-  }
-  
-  .nav-user {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    padding-left: 16px;
-    margin-top: 4px;
-  }
-  
-  .dropdown-menu a {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-  
-  .dropdown-trigger {
-    margin-bottom: 4px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-links a, .dropdown-trigger {
-    padding: 4px 10px;
-    font-size: 12px;
-  }
-  
-  .logo span:last-child {
-    font-size: 16px;
-  }
-}
-
 </style>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { supabase } from './lib/supabase.js'
 import GlobalBackground from './components/GlobalBackground.vue'
 
@@ -372,6 +344,25 @@ const email = ref('')
 const password = ref('')
 const isLogin = ref(true)
 const errorMsg = ref('')
+const mobileDropdownOpen = ref(false)
+const isMobile = ref(false)
+
+// 检测是否为移动端
+const checkMobile = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+// 切换移动端下拉菜单
+const toggleMobileDropdown = () => {
+  if (isMobile.value) {
+    mobileDropdownOpen.value = !mobileDropdownOpen.value
+  }
+}
+
+// 关闭移动端下拉菜单
+const closeMobileDropdown = () => {
+  mobileDropdownOpen.value = false
+}
 
 const handleAuth = async () => {
   errorMsg.value = ''
@@ -404,5 +395,11 @@ const logout = async () => {
 onMounted(async () => {
   const { data: { user: currentUser } } = await supabase.auth.getUser()
   user.value = currentUser
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkMobile)
 })
 </script>

@@ -2,39 +2,43 @@
   <div>
     <h1 class="page-title">📝 写作</h1>
     <p class="page-subtitle">记录你的灵感、梦境与思考</p>
-    
-    <!-- 写作场景选择 -->
-    <div class="scenes-wrapper">
-      <button 
-        v-for="scene in scenes" 
-        :key="scene.value"
-        @click="selectedScene = scene.value"
-        :class="['scene-tag', selectedScene === scene.value ? 'active' : '']"
-      >
-        <span>{{ scene.icon }}</span>
-        <span>{{ scene.name }}</span>
-      </button>
-    </div>
 
-    <!-- 写作表单 -->
-    <div class="card">
-      <input 
-        v-model="title" 
-        type="text" 
-        placeholder="标题..." 
-        style="font-size: 24px; font-weight: 600; margin-bottom: 20px;"
-      >
-      
-      <textarea 
-        v-model="content" 
-        rows="16" 
-        placeholder="在这里写内容..." 
-        style="font-size: 18px; line-height: 1.7;"
-      ></textarea>
+    <!-- 左右布局：左侧竖条菜单 + 右侧写作表单 -->
+    <div class="writing-layout">
+      <!-- 左侧竖条菜单 -->
+      <div class="scene-sidebar">
+        <button 
+          v-for="scene in scenes" 
+          :key="scene.value"
+          @click="selectedScene = scene.value"
+          :class="['scene-btn', selectedScene === scene.value ? 'active' : '']"
+          :title="scene.name"
+        >
+          <span class="scene-icon">{{ scene.icon }}</span>
+          <span class="scene-name">{{ scene.name }}</span>
+        </button>
+      </div>
 
-      <div style="display: flex; gap: 16px; margin-top: 24px;">
-        <button @click="saveEntry" class="btn btn-success">💾 保存</button>
-        <button @click="showAIChat = true" class="btn btn-purple">🤖 AI助手</button>
+      <!-- 右侧写作表单 -->
+      <div class="writing-form">
+        <input 
+          v-model="title" 
+          type="text" 
+          placeholder="标题..." 
+          class="title-input"
+        >
+        
+        <textarea 
+          v-model="content" 
+          rows="16" 
+          placeholder="在这里写内容..." 
+          class="content-textarea"
+        ></textarea>
+
+        <div class="form-actions">
+          <button @click="saveEntry" class="btn btn-success">💾 保存</button>
+          <button @click="showAIChat = true" class="btn btn-purple">🤖 AI助手</button>
+        </div>
       </div>
     </div>
 
@@ -42,7 +46,7 @@
     <div v-if="showAIChat" class="ai-chat">
       <div class="ai-chat-header">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="assistant-avatar-pixel" v-html="dialogAvatarSvg"></div>
+          <div class="assistant-avatar-pixel" v-html="assistantAvatarSvg"></div>
           <div>
             <span style="font-weight: 700; font-size: 20px;">{{ assistantName }}</span>
             <span style="font-size: 12px; opacity: 0.8; display: block;">AI创作助手</span>
@@ -65,43 +69,140 @@
       </div>
     </div>
 
-    <!-- AI 助手浮动按钮 - 桌宠风格，居中显示 -->
+    <!-- AI 助手浮动按钮 -->
     <div 
       @click="showAIChat = true" 
       class="ai-float-pixel"
       v-if="!showAIChat"
     >
-      <div class="pixel-avatar-wrapper" v-html="croppedAvatarSvg"></div>
+      <div class="pixel-avatar-wrapper" v-html="assistantAvatarSvg"></div>
       <div class="pixel-name">{{ assistantName }}</div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.scenes-wrapper {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+.page-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 12px;
 }
 
-.card {
+.page-subtitle {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+/* 左右布局 */
+.writing-layout {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 左侧竖条菜单 */
+.scene-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  min-width: 100px;
+}
+
+.scene-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.scene-btn:hover {
+  background: #f3f4f6;
+}
+
+.scene-btn.active {
+  background: #6366f1;
+  color: white;
+}
+
+.scene-icon {
+  font-size: 24px;
+}
+
+.scene-name {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 右侧写作表单 */
+.writing-form {
+  flex: 1;
   background: white;
   border-radius: 24px;
   padding: 28px;
+  border: 1px solid #e5e7eb;
+}
+
+.title-input {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 8px 0;
+  margin-bottom: 20px;
+}
+
+.title-input:focus {
+  outline: none;
+  border-bottom-color: #6366f1;
+}
+
+.content-textarea {
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.7;
+  border: none;
+  padding: 8px 0;
+  resize: vertical;
+}
+
+.content-textarea:focus {
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 32px;
-  font-size: 18px;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
   font-weight: 600;
   border: none;
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .btn-success {
@@ -122,35 +223,30 @@
   background: #7c3aed;
 }
 
-.scene-tag {
-  padding: 14px 28px;
-  font-size: 17px;
-  font-weight: 600;
-  border-radius: 60px;
-  background: #f3f4f6;
-  border: none;
-  cursor: pointer;
+/* 响应式：小屏幕时竖条菜单变横向 */
+@media (max-width: 640px) {
+  .writing-layout {
+    flex-direction: column;
+  }
+  
+  .scene-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .scene-btn {
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+  
+  .scene-icon {
+    font-size: 18px;
+  }
 }
 
-.scene-tag.active {
-  background: #6366f1;
-  color: white;
-}
-
-.page-title {
-  font-size: 42px;
-  font-weight: 800;
-  color: #1f2937;
-  margin-bottom: 12px;
-}
-
-.page-subtitle {
-  font-size: 18px;
-  color: #6b7280;
-  margin-bottom: 40px;
-}
-
-/* AI 聊天框 */
+/* AI 聊天框样式（保持不变） */
 .ai-chat {
   position: fixed;
   bottom: 24px;
@@ -283,7 +379,6 @@
   white-space: nowrap;
 }
 
-/* AI 对话框内的头像 */
 .assistant-avatar-pixel {
   width: 48px;
   height: 48px;
@@ -308,7 +403,6 @@
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '../lib/supabase.js'
 import { generateCroppedAvatarSVG } from '../lib/avatarHelper.js'
-import { findFirstBadWord } from '../lib/badWords.js'
 
 const scenes = [
   { value: 'diary', name: '日记', icon: '📝' },
@@ -331,37 +425,16 @@ const assistantName = ref('小助手')
 const assistantAvatarData = ref(null)
 
 // 生成裁剪后居中显示的 SVG
-const croppedAvatarSvg = computed(() => {
+const assistantAvatarSvg = computed(() => {
   if (!assistantAvatarData.value) {
     return generateCroppedAvatarSVG(null, 80)
   }
   return generateCroppedAvatarSVG(assistantAvatarData.value, 80)
 })
 
-// 对话框内的小头像
-const dialogAvatarSvg = computed(() => {
-  if (!assistantAvatarData.value) {
-    return generateCroppedAvatarSVG(null, 48)
-  }
-  return generateCroppedAvatarSVG(assistantAvatarData.value, 48)
-})
-
 const saveEntry = async () => {
   if (!title.value || !content.value) {
     alert('请填写标题和内容')
-    return
-  }
-  
-  // 敏感词检测
-  const titleBadWord = await findFirstBadWord(title.value)
-  if (titleBadWord) {
-    alert(`标题包含敏感词「${titleBadWord}」，请修改后重试`)
-    return
-  }
-  
-  const contentBadWord = await findFirstBadWord(content.value)
-  if (contentBadWord) {
-    alert(`内容包含敏感词「${contentBadWord}」，请修改后重试`)
     return
   }
 
