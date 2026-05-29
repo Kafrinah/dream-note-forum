@@ -9,6 +9,8 @@ import Achievements from '../views/Achievements.vue'
 import NovelGenerator from '../views/NovelGenerator.vue'
 import StickerSlots from '../views/StickerSlots.vue'
 import BackgroundEditor from '../views/BackgroundEditor.vue'
+import NovelList from '../views/NovelList.vue'
+import NovelEditor from '../views/NovelEditor.vue'
 
 const routes = [
   { path: '/', redirect: '/writing' },
@@ -21,7 +23,9 @@ const routes = [
   { path: '/achievements', component: Achievements },
   { path: '/novel', component: NovelGenerator },
   { path: '/stickers', component: StickerSlots },
-  { path: '/background', component: BackgroundEditor }
+  { path: '/background', component: BackgroundEditor },
+  { path: '/novels', component: NovelList },
+  { path: '/novel/:id', component: NovelEditor }
 ]
 
 const router = createRouter({

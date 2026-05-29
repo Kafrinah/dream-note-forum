@@ -39,7 +39,8 @@
             <span>梦镜</span>
           </div>
           <div class="nav-links">
-            <router-link to="/writing">⚪ 写作</router-link>        
+            <router-link to="/writing">⚪ 写作</router-link> 
+            <router-link to="/novels">📚 作品库</router-link>       
             <router-link to="/forum">⚪ 广场</router-link>
             <router-link to="/novel">⚪ AI</router-link>
              
