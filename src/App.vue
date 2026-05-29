@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="nav-user">
-            <span>{{ user.email }}</span>
+            <span class="user-email">{{ user.email }}</span>
             <button @click="logout" class="logout-btn">退出</button>
           </div>
         </div>
@@ -173,6 +173,18 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+/* 手机端隐藏邮箱 */
+@media (max-width: 480px) {
+  .nav-user .user-email {
+    display: none;
+  }
+  
+  .nav-user {
+    /* 确保退出按钮不会太挤 */
+    margin-left: 0;
+  }
 }
 
 .logout-btn {
