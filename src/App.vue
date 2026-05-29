@@ -1,4 +1,4 @@
-<template>
+    <template>
   <!-- 未登录时显示登录界面 -->
   <div v-if="!user" class="login-container">
     <div class="login-card pixel-modal">
