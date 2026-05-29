@@ -10,31 +10,29 @@
       </button>
     </div>
 
-    <div class="posts-list">
+    <!-- 双列瀑布流 -->
+    <div class="waterfall">
       <div v-for="post in posts" :key="post.id" class="post-card" @click="goToPost(post.id)">
+        <!-- 标题和标签 -->
         <div class="post-header">
-          <div class="post-title-section">
-            <div class="title-row">
-              <h3 class="post-title">{{ post.title }}</h3>
-              <span v-if="post.is_ai_generated" class="ai-badge">🤖 AI 生成</span>
-            </div>
-            <div class="post-meta">
-              <span>👤 {{ post.user_id?.substring(0, 8) || '匿名' }}</span>
-              <span>❤️ {{ post.likes || 0 }}</span>
-              <span>📅 {{ formatDate(post.created_at) }}</span>
-            </div>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <span v-if="post.is_ai_generated" class="ai-badge">🤖 AI生成</span>
+        </div>
+        
+        <!-- 文字预览 -->
+        <p class="post-preview">{{ getPreview(post.content) }}</p>
+        
+        <!-- 底部信息 -->
+        <div class="post-footer">
+          <div class="post-meta">
+            <span class="post-likes">❤️ {{ post.likes || 0 }}</span>
+            <span class="post-comments">💬 {{ getCommentCount(post.id) }}</span>
           </div>
-          <div class="post-actions" @click.stop>
-            <button 
-              v-if="post.user_id === user?.id" 
-              @click="deletePost(post.id)" 
-              class="delete-btn"
-            >
-              删除
-            </button>
+          <div class="post-author">
+            <span class="author-name">{{ post.user_id?.substring(0, 8) }}</span>
+            <span class="post-time">{{ formatDate(post.created_at) }}</span>
           </div>
         </div>
-        <p class="post-preview">{{ getPreview(post.content) }}</p>
       </div>
     </div>
 
@@ -77,67 +75,83 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .page-title {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
   color: #1f2937;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .page-subtitle {
-  font-size: 18px;
+  font-size: 14px;
   color: #6b7280;
 }
 
-.posts-list {
-  display: flex;
-  flex-direction: column;
+.btn-primary {
+  background: #6366f1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: #4f46e5;
+}
+
+/* 双列瀑布流 */
+.waterfall {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
 .post-card {
   background: white;
-  border-radius: 24px;
-  padding: 24px;
-  transition: all 0.2s;
-  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
   cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* 标题区域 */
 .post-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 16px;
-}
-
-.post-title-section {
-  flex: 1;
-}
-
-.title-row {
-  display: flex;
-  align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .post-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
   color: #1f2937;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex: 1;
 }
 
 .ai-badge {
@@ -147,55 +161,71 @@
   padding: 4px 10px;
   border-radius: 20px;
   font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 文字预览 */
+.post-preview {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  min-height: 63px;
+}
+
+/* 底部信息 */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f2f5;
 }
 
 .post-meta {
   display: flex;
-  gap: 20px;
-  color: #6b7280;
+  gap: 16px;
   font-size: 13px;
+  color: #6b7280;
 }
 
-.post-actions {
+.post-author {
   display: flex;
   gap: 8px;
-}
-
-.delete-btn {
-  background: #ef4444;
-  color: white;
-  border: none;
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.delete-btn:hover {
-  background: #dc2626;
-}
-
-.post-preview {
-  color: #4b5563;
-  line-height: 1.5;
-  font-size: 14px;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #e5e7eb;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
+  font-size: 12px;
   color: #9ca3af;
-  font-size: 16px;
 }
 
+.author-name {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+/* 响应式：手机单列 */
+@media (max-width: 640px) {
+  .waterfall {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .post-title {
+    font-size: 16px;
+  }
+  
+  .post-preview {
+    font-size: 13px;
+    -webkit-line-clamp: 2;
+    min-height: 52px;
+  }
+}
+
+/* 弹窗样式 */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -211,7 +241,7 @@
 
 .modal-card {
   background: white;
-  border-radius: 28px;
+  border-radius: 24px;
   width: 90%;
   max-width: 550px;
   overflow: hidden;
@@ -242,31 +272,25 @@
   color: #6b7280;
 }
 
-.close-modal:hover {
-  background: #e5e7eb;
-}
-
 .modal-body {
   padding: 24px;
 }
 
 .modal-input {
   width: 100%;
-  padding: 14px 18px;
-  font-size: 16px;
-  background: #f3f4f6;
-  border: none;
-  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   margin-bottom: 16px;
 }
 
 .modal-textarea {
   width: 100%;
-  padding: 14px 18px;
-  font-size: 15px;
-  background: #f3f4f6;
-  border: none;
-  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   resize: vertical;
   font-family: inherit;
 }
@@ -277,21 +301,6 @@
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-}
-
-.btn-primary {
-  background: #6366f1;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: #4f46e5;
 }
 
 .btn-secondary {
@@ -308,13 +317,20 @@
 .btn-secondary:hover {
   background: #e5e7eb;
 }
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #9ca3af;
+  font-size: 16px;
+}
 </style>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { supabase } from '../lib/supabase.js'
-import { containsBadWords, findFirstBadWord } from '../lib/badWords.js'
+import { findFirstBadWord } from '../lib/badWords.js'
 
 const posts = ref([])
 const showNewPost = ref(false)
@@ -322,41 +338,45 @@ const newPostTitle = ref('')
 const newPostContent = ref('')
 const router = useRouter()
 const user = ref(null)
+const commentCounts = ref({})
 
+// 获取文字预览（最多100字）
 const getPreview = (content) => {
   if (!content) return ''
-  if (content.length <= 150) return content
-  return content.substring(0, 150) + '...'
+  if (content.length <= 100) return content
+  return content.substring(0, 100) + '...'
+}
+
+// 获取评论数
+const getCommentCount = (postId) => {
+  return commentCounts.value[postId] || 0
+}
+
+const loadCommentCounts = async () => {
+  for (const post of posts.value) {
+    const { count } = await supabase
+      .from('forum_comments')
+      .select('*', { count: 'exact', head: true })
+      .eq('post_id', post.id)
+    
+    if (count !== null) {
+      commentCounts.value[post.id] = count
+    }
+  }
 }
 
 const loadPosts = async () => {
-  // 获取所有帖子
-  const { data: postsData } = await supabase
+  const { data } = await supabase
     .from('forum_posts')
     .select('*')
     .order('created_at', { ascending: false })
   
-  if (!postsData) {
-    posts.value = []
-    return
-  }
+  posts.value = data?.map(post => ({
+    ...post,
+    likes: post.likes || 0
+  })) || []
   
-  // 为每个帖子获取点赞数
-  const postsWithLikes = await Promise.all(
-    postsData.map(async (post) => {
-      const { count } = await supabase
-        .from('post_likes')
-        .select('*', { count: 'exact', head: true })
-        .eq('post_id', post.id)
-      
-      return {
-        ...post,
-        likes: count || 0
-      }
-    })
-  )
-  
-  posts.value = postsWithLikes
+  await loadCommentCounts()
 }
 
 const publishPost = async () => {
@@ -365,7 +385,6 @@ const publishPost = async () => {
     return
   }
   
-  // 敏感词检测
   const titleBadWord = await findFirstBadWord(newPostTitle.value)
   if (titleBadWord) {
     alert(`标题包含敏感词「${titleBadWord}」，请修改后重试`)
@@ -396,30 +415,26 @@ const publishPost = async () => {
   }
 }
 
-const deletePost = async (postId) => {
-  if (!confirm('确定要删除这篇帖子吗？')) return
-  
-  const { error } = await supabase
-    .from('forum_posts')
-    .delete()
-    .eq('id', postId)
-  
-  if (!error) {
-    posts.value = posts.value.filter(p => p.id !== postId)
-    alert('删除成功')
-  } else {
-    alert('删除失败')
-  }
-}
-
 const goToPost = (id) => {
-  console.log('跳转到帖子:', id)
-  router.push({ name: 'PostDetail', params: { id: id } })
+  router.push(`/post/${id}`)
 }
 
 const formatDate = (date) => {
   if (!date) return ''
-  return new Date(date).toLocaleDateString()
+  const now = new Date()
+  const postDate = new Date(date)
+  const diff = now - postDate
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  
+  if (days === 0) {
+    const hours = Math.floor(diff / (1000 * 60 * 60))
+    if (hours === 0) return '刚刚'
+    return `${hours}小时前`
+  } else if (days < 7) {
+    return `${days}天前`
+  } else {
+    return postDate.toLocaleDateString()
+  }
 }
 
 onMounted(async () => {
