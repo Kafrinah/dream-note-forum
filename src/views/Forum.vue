@@ -2,7 +2,7 @@
   <div>
     <div class="forum-header">
       <div>
-        <h1 class="page-title">🌐 作品广场</h1>
+        <h1 class="page-title">🌐 论坛</h1>
         <p class="page-subtitle">分享你的创作，发现更多灵感</p>
       </div>
       <button @click="showNewPost = true" class="btn-primary">

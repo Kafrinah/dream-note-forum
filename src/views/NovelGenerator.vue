@@ -1,6 +1,6 @@
 <template>
   <div class="novel-generator">
-    <h1 class="page-title">✨ AI 小说生成器</h1>
+    <h1 class="page-title">✨ 灵感拓延器</h1>
     <p class="page-subtitle">基于你的笔记和梦境，创作专属小说</p>
 
     <div class="selector-section">

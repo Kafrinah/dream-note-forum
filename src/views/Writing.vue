@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="page-title">📝 写作</h1>
+    <h1 class="page-title">📝 随记</h1>
     <p class="page-subtitle">记录你的灵感、梦境与思考</p>
 
     <!-- 左右布局：左侧竖条菜单 + 右侧写作表单 -->

@@ -39,10 +39,10 @@
             <span>梦镜</span>
           </div>
           <div class="nav-links">
-            <router-link to="/writing">⚪ 写作</router-link> 
-            <router-link to="/novels">📚 作品库</router-link>       
-            <router-link to="/forum">⚪ 广场</router-link>
-            <router-link to="/novel">⚪ AI</router-link>
+            <router-link to="/writing">⚪ 随记</router-link> 
+            <router-link to="/novels">📚 写作</router-link>       
+            <router-link to="/forum">⚪ 论坛</router-link>
+            <router-link to="/novel">⚪ 灵感</router-link>
              
             <div class="dropdown" :class="{ 'mobile-open': mobileDropdownOpen }">
               <span class="dropdown-trigger" @click="toggleMobileDropdown">⚪ 我的</span>
