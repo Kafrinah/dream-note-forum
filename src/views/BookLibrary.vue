@@ -85,7 +85,8 @@
               <button @click="prevPage" :disabled="currentPage <= 1" class="pdf-nav-btn">◀ 上一页</button>
               <span>第 {{ currentPage }} / {{ pdfPageCount }} 页</span>
               <button @click="nextPage" :disabled="currentPage >= pdfPageCount" class="pdf-nav-btn">下一页 ▶</button>
-              <button @click="savePDFProgress" class="save-progress-btn">保存进度</button>
+              <button @click="savePDFProgress" class="save-progress-btn">💾 保存进度</button>
+              <span v-if="showSaveHint" class="save-hint">✓ 已保存</span>
             </div>
           </div>
           <div v-else class="other-reader">
@@ -339,7 +340,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  padding: 12px;
+  padding: 12px 20px;
   background: #f3f4f6;
   border-radius: 12px;
   position: sticky;
@@ -367,6 +368,19 @@
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.save-hint {
+  color: #10b981;
+  font-size: 12px;
+  margin-left: 8px;
+  animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .pdf-loading {
@@ -488,8 +502,10 @@ const txtReaderRef = ref(null)
 const pdfLoading = ref(false)
 const pdfPageCount = ref(0)
 const currentPage = ref(1)
+const showSaveHint = ref(false)
 let pdfDoc = null
 let pdfSaveTimeout = null
+let saveHintTimeout = null
 
 // IndexedDB 操作
 const DB_NAME = 'BookLibraryDB'
@@ -551,7 +567,6 @@ const updateBookProgress = (id, progress) => {
     const transaction = db.transaction(STORE_NAME, 'readwrite')
     const store = transaction.objectStore(STORE_NAME)
     
-    // 先获取原数据
     const getRequest = store.get(id)
     getRequest.onsuccess = () => {
       const book = getRequest.result
@@ -708,7 +723,6 @@ const deleteBook = async (id) => {
   }
 }
 
-// 保存 PDF 进度
 const savePDFProgress = async () => {
   if (!readingBook.value || readingBook.value.file_type !== 'pdf') return
   
@@ -717,14 +731,16 @@ const savePDFProgress = async () => {
   
   try {
     await updateBookProgress(readingBook.value.id, progress)
-    alert(`进度已保存：第 ${currentPage.value} / ${pdfPageCount.value} 页`)
+    showSaveHint.value = true
+    if (saveHintTimeout) clearTimeout(saveHintTimeout)
+    saveHintTimeout = setTimeout(() => {
+      showSaveHint.value = false
+    }, 1000)
   } catch (err) {
     console.error('保存失败:', err)
-    alert('保存失败')
   }
 }
 
-// TXT 滚动保存
 const saveTxtScrollProgress = async () => {
   if (!readingBook.value || readingBook.value.file_type !== 'txt') return
   if (!txtReaderRef.value) return
@@ -747,10 +763,10 @@ const openBook = async (book) => {
   readingBook.value = { ...book }
   currentPage.value = 1
   pdfPageCount.value = 0
+  showSaveHint.value = false
   
   if (book.file_type === 'pdf' && book.arrayBuffer) {
     await renderPDF(book)
-    // 恢复进度
     if (book.progress > 0 && pdfPageCount.value > 0) {
       const savedPage = Math.floor((book.progress / 100) * pdfPageCount.value)
       currentPage.value = Math.max(1, Math.min(savedPage, pdfPageCount.value))
@@ -759,7 +775,6 @@ const openBook = async (book) => {
     }
   } else if (book.file_type === 'txt') {
     await nextTick()
-    // 恢复 TXT 滚动位置
     if (book.progress > 0 && txtReaderRef.value) {
       const scrollHeight = txtReaderRef.value.scrollHeight
       const clientHeight = txtReaderRef.value.clientHeight
@@ -805,7 +820,6 @@ const renderPage = async (pageNum) => {
   
   await page.render(renderContext).promise
   
-  // 隐藏其他canvas
   const allCanvases = document.querySelectorAll('.pdf-canvas')
   allCanvases.forEach(c => {
     if (c.id !== `pdf-canvas-${pageNum}`) {
@@ -833,6 +847,7 @@ const closeReader = () => {
   pdfDoc = null
   pdfPageCount.value = 0
   currentPage.value = 1
+  showSaveHint.value = false
 }
 
 const downloadBook = () => {

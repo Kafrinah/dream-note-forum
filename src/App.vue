@@ -54,6 +54,7 @@
                 <router-link to="/achievements" @click="closeMobileDropdown">🏆 成就</router-link>
                 <router-link to="/background" @click="closeMobileDropdown">🖼️ 背景</router-link>
                 <router-link to="/books" @click="closeMobileDropdown">📚 电子书库</router-link>
+                <router-link to="/stats" @click="closeMobileDropdown">📊 写作统计</router-link>
               </div>
             </div>
           </div>

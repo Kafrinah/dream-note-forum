@@ -12,6 +12,7 @@ import BackgroundEditor from '../views/BackgroundEditor.vue'
 import NovelList from '../views/NovelList.vue'
 import NovelEditor from '../views/NovelEditor.vue'
 import BookLibrary from '../views/BookLibrary.vue'
+import WritingStats from '../views/WritingStats.vue'
 
 const routes = [
   { path: '/', redirect: '/writing' },
@@ -27,7 +28,8 @@ const routes = [
   { path: '/background', component: BackgroundEditor },
   { path: '/novels', component: NovelList },
   { path: '/novel/:id', component: NovelEditor },
-  { path: '/books', component: BookLibrary }
+  { path: '/books', component: BookLibrary },
+  { path: '/stats', component: WritingStats }
 ]
 
 const router = createRouter({
