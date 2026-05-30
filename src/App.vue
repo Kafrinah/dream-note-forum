@@ -53,6 +53,7 @@
                 <router-link to="/assistant" @click="closeMobileDropdown">🤖 助手</router-link>
                 <router-link to="/achievements" @click="closeMobileDropdown">🏆 成就</router-link>
                 <router-link to="/background" @click="closeMobileDropdown">🖼️ 背景</router-link>
+                <router-link to="/books" @click="closeMobileDropdown">📚 电子书库</router-link>
               </div>
             </div>
           </div>

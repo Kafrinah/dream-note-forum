@@ -11,6 +11,7 @@ import StickerSlots from '../views/StickerSlots.vue'
 import BackgroundEditor from '../views/BackgroundEditor.vue'
 import NovelList from '../views/NovelList.vue'
 import NovelEditor from '../views/NovelEditor.vue'
+import BookLibrary from '../views/BookLibrary.vue'
 
 const routes = [
   { path: '/', redirect: '/writing' },
@@ -25,7 +26,8 @@ const routes = [
   { path: '/stickers', component: StickerSlots },
   { path: '/background', component: BackgroundEditor },
   { path: '/novels', component: NovelList },
-  { path: '/novel/:id', component: NovelEditor }
+  { path: '/novel/:id', component: NovelEditor },
+  { path: '/books', component: BookLibrary }
 ]
 
 const router = createRouter({
