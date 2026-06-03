@@ -39,10 +39,10 @@
             <span>梦镜</span>
           </div>
           <div class="nav-links">
-            <router-link to="/writing">⚪ 随记</router-link> 
+            <router-link to="/writing">📝 随记</router-link> 
             <router-link to="/novels">📚 写作</router-link>       
-            <router-link to="/forum">⚪ 论坛</router-link>
-            <router-link to="/novel">⚪ 灵感</router-link>
+            <router-link to="/forum">🌐 论坛</router-link>
+            <router-link to="/novel">✨ 灵感</router-link>
              
             <div class="dropdown" :class="{ 'mobile-open': mobileDropdownOpen }">
               <span class="dropdown-trigger" @click="toggleMobileDropdown">⚪ 我的</span>
@@ -93,7 +93,6 @@
 
 .dropdown-trigger {
   padding: 8px 16px;
-  color: #475569;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -101,11 +100,17 @@
   transition: all 0.2s;
   cursor: pointer;
   display: inline-block;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .dropdown-trigger:hover {
-  background: #f1f5f9;
-  color: #6366f1;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .dropdown-menu {
@@ -185,7 +190,6 @@
   }
   
   .nav-user {
-    /* 确保退出按钮不会太挤 */
     margin-left: 0;
   }
 }
@@ -323,18 +327,43 @@
 
 .nav-links a {
   text-decoration: none;
-  color: #4b5563;
   font-weight: 500;
   font-size: 15px;
-  transition: color 0.2s;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 4px;
   white-space: nowrap;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .nav-links a:hover {
-  color: #6366f1;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.1s;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dropdown-menu a:hover {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .container {

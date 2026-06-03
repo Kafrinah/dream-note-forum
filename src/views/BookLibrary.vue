@@ -115,6 +115,10 @@
   font-size: 32px;
   font-weight: 700;
   color: #1f2937;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .btn-primary {

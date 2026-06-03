@@ -46,7 +46,7 @@
         </div>
         <div class="achievement-action">
           <div v-if="ach.unlocked && !ach.claimed" class="reward-badge">
-            🎁 奖励：{{ ach.reward_value }} 个贴纸位
+            奖励：{{ ach.reward_value }} 个贴纸位
           </div>
           <button 
             v-if="ach.unlocked && !ach.claimed" 
@@ -56,10 +56,10 @@
             领取奖励
           </button>
           <div v-else-if="ach.claimed" class="claimed-badge">
-            ✅ 已领取
+            已领取
           </div>
           <div v-else-if="!ach.unlocked" class="locked-badge">
-            🔒 未完成
+            未完成
           </div>
         </div>
       </div>
@@ -93,6 +93,10 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {
@@ -119,6 +123,10 @@
   font-size: 32px;
   display: block;
   margin-bottom: 8px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .stat-value {
@@ -162,6 +170,10 @@
 
 .achievement-icon {
   font-size: 48px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .achievement-info {

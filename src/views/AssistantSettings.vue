@@ -36,6 +36,10 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {

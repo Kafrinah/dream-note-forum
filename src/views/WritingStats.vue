@@ -6,22 +6,22 @@
     <!-- 统计卡片 -->
     <div class="stats-cards">
       <div class="stat-card">
-        <div class="stat-icon">📝</div>
+        <div class="stat-icon"></div>
         <div class="stat-value">{{ totalWords }}</div>
         <div class="stat-label">总字数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">✨</div>
+        <div class="stat-icon"></div>
         <div class="stat-value">{{ todayWords }}</div>
         <div class="stat-label">今日字数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">📅</div>
+        <div class="stat-icon"></div>
         <div class="stat-value">{{ totalEntries }}</div>
         <div class="stat-label">总篇数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🔥</div>
+        <div class="stat-icon"></div>
         <div class="stat-value">{{ streakDays }}</div>
         <div class="stat-label">连续写作天数</div>
       </div>
@@ -29,7 +29,7 @@
 
     <!-- 各类型统计 -->
     <div class="section">
-      <h2 class="section-title">📂 按类型统计</h2>
+      <h2 class="section-title">按类型统计</h2>
       <div class="type-stats">
         <div v-for="type in typeStats" :key="type.name" class="type-item">
           <span class="type-icon">{{ type.icon }}</span>
@@ -45,7 +45,7 @@
 
     <!-- 本周趋势图 -->
     <div class="section">
-      <h2 class="section-title">📈 本周趋势</h2>
+      <h2 class="section-title">本周趋势</h2>
       <div class="chart-container">
         <div v-for="day in weekData" :key="day.date" class="chart-bar">
           <div class="bar" :style="{ height: day.height + 'px' }"></div>
@@ -57,7 +57,7 @@
 
     <!-- 最近活动 -->
     <div class="section">
-      <h2 class="section-title">🕐 最近活动</h2>
+      <h2 class="section-title">最近活动</h2>
       <div class="recent-list">
         <div v-for="entry in recentEntries" :key="entry.id" class="recent-item">
           <span class="recent-type">{{ getTypeIcon(entry.type) }}</span>
@@ -79,6 +79,10 @@
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 8px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {
@@ -150,6 +154,10 @@
 .type-icon {
   font-size: 20px;
   width: 32px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .type-name {

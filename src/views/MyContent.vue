@@ -16,7 +16,7 @@
         @click="filterType = 'all'"
         :class="['scene-tag', filterType === 'all' ? 'active' : '']"
       >
-        📄 全部
+        全部
       </button>
     </div>
 
@@ -31,14 +31,14 @@
             <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 8px;">{{ entry.title }}</h3>
             <div style="display: flex; gap: 16px; margin-bottom: 12px; color: #6b7280; font-size: 14px;">
               <span>{{ getSceneIcon(entry.type) }} {{ getSceneName(entry.type) }}</span>
-              <span>📅 {{ formatDate(entry.created_at) }}</span>
+              <span>{{ formatDate(entry.created_at) }}</span>
             </div>
             <p style="color: #4b5563; line-height: 1.5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
               {{ getPreview(entry.content) }}
             </p>
           </div>
           <div style="display: flex; gap: 8px;">
-            <button @click.stop="publishToForum(entry)" class="publish-btn">🌐 发布到论坛</button>
+            <button @click.stop="publishToForum(entry)" class="publish-btn">发布到论坛</button>
             <button @click.stop="deleteEntry(entry.id)" class="delete-btn">删除</button>
           </div>
         </div>
@@ -59,12 +59,12 @@
         <div class="modal-body">
           <div class="detail-meta">
             <span>{{ getSceneIcon(selectedEntry?.type) }} {{ getSceneName(selectedEntry?.type) }}</span>
-            <span>📅 {{ formatDate(selectedEntry?.created_at) }}</span>
+            <span>{{ formatDate(selectedEntry?.created_at) }}</span>
           </div>
           <div class="detail-content">{{ selectedEntry?.content }}</div>
         </div>
         <div class="modal-footer">
-          <button @click="publishFromDetail" class="btn-publish">🌐 发布到论坛</button>
+          <button @click="publishFromDetail" class="btn-publish">发布到论坛</button>
           <button @click="deleteFromDetail" class="btn-danger">删除</button>
           <button @click="showDetail = false" class="btn-secondary">关闭</button>
         </div>
@@ -99,6 +99,23 @@
 </template>
 
 <style scoped>
+.page-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
 .scenes-wrapper {
   display: flex;
   gap: 14px;
@@ -341,12 +358,12 @@ import { ref, computed, onMounted } from 'vue'
 import { supabase } from '../lib/supabase.js'
 
 const scenes = [
-  { value: 'diary', name: '日记', icon: '📝' },
-  { value: 'academic', name: '学术笔记', icon: '📚' },
-  { value: 'dream', name: '梦记', icon: '🌙' },
-  { value: 'creation', name: '创作', icon: '✍️' },
-  { value: 'reading', name: '读书笔记', icon: '📖' },
-  { value: 'quote', name: '摘抄', icon: '✂️' }
+  { value: 'diary', name: '日记', icon: '' },
+  { value: 'academic', name: '学术笔记', icon: '' },
+  { value: 'dream', name: '梦记', icon: '' },
+  { value: 'creation', name: '创作', icon: '' },
+  { value: 'reading', name: '读书笔记', icon: '' },
+  { value: 'quote', name: '摘抄', icon: '' }
 ]
 
 const entries = ref([])

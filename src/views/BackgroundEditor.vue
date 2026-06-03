@@ -11,27 +11,27 @@
           :class="{ active: mode === 'move' }" 
           class="tool-btn"
         >
-          ✋ 移动模式
+          移动模式
         </button>
         <button 
           @click="mode = 'rotate'" 
           :class="{ active: mode === 'rotate' }" 
           class="tool-btn"
         >
-          🔄 旋转模式
+          旋转模式
         </button>
         <button @click="saveBackground" class="tool-btn btn-primary">
-          💾 保存背景
+          保存背景
         </button>
         <button @click="resetBackground" class="tool-btn btn-danger">
-          🗑️ 重置
+          重置
         </button>
       </div>
     </div>
 
     <!-- 贴纸库 -->
     <div class="sticker-library">
-      <h3>📦 我的贴纸库</h3>
+      <h3>我的贴纸库</h3>
       <div class="sticker-list">
         <div 
           v-for="sticker in myStickers" 
@@ -80,7 +80,7 @@
       >
         <div class="sticker-content" v-html="getStickerPreviewById(item.sticker_slot_id)"></div>
         <div v-if="selectedStickerId === item.id" class="sticker-controls">
-          <button @click.stop="rotateSticker(item)" class="control-btn">🔄 90°</button>
+          <button @click.stop="rotateSticker(item)" class="control-btn">90°</button>
           <button @click.stop="removeSticker(item)" class="control-btn btn-danger-small">✕</button>
         </div>
       </div>
@@ -123,6 +123,10 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {

@@ -4,7 +4,7 @@
     <p class="page-subtitle">基于你的笔记和梦境，创作专属小说</p>
 
     <div class="selector-section">
-      <h3>📝 选择素材</h3>
+      <h3>选择素材</h3>
       <div class="material-list">
         <div class="material-group">
           <h4>笔记</h4>
@@ -30,16 +30,16 @@
       </div>
 
       <button @click="generateNovel" :disabled="isGenerating" class="generate-btn">
-        {{ isGenerating ? '生成中...' : '✨ 生成小说' }}
+        {{ isGenerating ? '生成中...' : '生成小说' }}
       </button>
     </div>
 
     <div v-if="novel" class="result-section">
-      <h3>📖 生成的小说</h3>
+      <h3>生成的小说</h3>
       <div class="novel-content">{{ novel }}</div>
       <div class="result-actions">
-        <button @click="copyNovel" class="copy-btn">📋 复制</button>
-        <button @click="publishToForum" class="publish-btn">🌐 发布到论坛</button>
+        <button @click="copyNovel" class="copy-btn">复制</button>
+        <button @click="publishToForum" class="publish-btn">发布到论坛</button>
       </div>
     </div>
   </div>
@@ -57,6 +57,10 @@
   font-weight: 800;
   margin-bottom: 12px;
   color: #1f2937;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {

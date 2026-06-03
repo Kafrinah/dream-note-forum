@@ -12,8 +12,8 @@
           <h3>{{ novel.title }}</h3>
           <p class="novel-desc">{{ novel.description || '暂无描述' }}</p>
           <div class="novel-stats">
-            <span>📊 {{ getStatusText(novel.status) }}</span>
-            <span>📅 {{ formatDate(novel.updated_at) }}</span>
+            <span>{{ getStatusText(novel.status) }}</span>
+            <span>{{ formatDate(novel.updated_at) }}</span>
           </div>
         </div>
         <button @click.stop="deleteNovel(novel.id)" class="delete-btn">删除</button>
@@ -58,6 +58,10 @@
   font-size: 32px;
   font-weight: 700;
   color: #1f2937;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .btn-primary {

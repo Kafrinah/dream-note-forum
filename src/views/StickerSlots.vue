@@ -18,7 +18,7 @@
             v-if="slot.pixel_data" 
             @click.stop="deleteSlot(slot)" 
             class="delete-slot-btn"
-          >🗑️ 清除</button>
+          >清除</button>
         </div>
       </div>
       
@@ -31,7 +31,7 @@
     <div v-if="editingSlot" class="modal-overlay" @click.self="closeEditor">
       <div class="modal-card modal-large">
         <div class="modal-header">
-          <h2>✏️ 编辑贴纸：{{ editingSlot.name || `贴纸 ${editingSlot.slot_index}` }}</h2>
+          <h2>编辑贴纸：{{ editingSlot.name || `贴纸 ${editingSlot.slot_index}` }}</h2>
           <button @click="closeEditor" class="close-modal">✕</button>
         </div>
         <div class="modal-body">
@@ -69,6 +69,10 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {

@@ -36,8 +36,8 @@
         ></textarea>
 
         <div class="form-actions">
-          <button @click="saveEntry" class="btn btn-success">💾 保存</button>
-          <button @click="showAIChat = true" class="btn btn-purple">🤖 AI助手</button>
+          <button @click="saveEntry" class="btn btn-success">保存</button>
+          <button @click="showAIChat = true" class="btn btn-purple">AI助手</button>
         </div>
       </div>
     </div>
@@ -87,6 +87,10 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {
@@ -139,6 +143,10 @@
 
 .scene-icon {
   font-size: 24px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .scene-name {

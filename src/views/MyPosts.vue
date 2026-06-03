@@ -9,16 +9,16 @@
           <div class="post-info">
             <div class="title-row">
               <h3 class="post-title">{{ post.title }}</h3>
-              <span v-if="post.is_ai_generated" class="ai-badge">🤖 AI 生成</span>
+              <span v-if="post.is_ai_generated" class="ai-badge">AI 生成</span>
             </div>
             <div class="post-meta">
-              <span>❤️ {{ post.likes || 0 }} 点赞</span>
-              <span>💬 {{ getCommentCount(post.id) }} 评论</span>
-              <span>📅 {{ formatDate(post.created_at) }}</span>
+              <span>{{ post.likes || 0 }} 点赞</span>
+              <span>{{ getCommentCount(post.id) }} 评论</span>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
           </div>
           <div class="post-actions" @click.stop>
-            <button @click="confirmDelete(post)" class="delete-btn">🗑️ 删除</button>
+            <button @click="confirmDelete(post)" class="delete-btn">删除</button>
           </div>
         </div>
         <p class="post-preview">{{ getPreview(post.content) }}</p>
@@ -27,7 +27,7 @@
 
     <div v-if="myPosts.length === 0" class="empty-state">
       <p>你还没有发布过帖子，去发布一篇吧～</p>
-      <button @click="goToWriting" class="btn-primary" style="margin-top: 16px;">📝 去写作</button>
+      <button @click="goToWriting" class="btn-primary" style="margin-top: 16px;">去写作</button>
     </div>
 
     <!-- 删除确认弹窗 -->
@@ -56,6 +56,10 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {

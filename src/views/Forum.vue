@@ -6,7 +6,7 @@
         <p class="page-subtitle">分享你的创作，发现更多灵感</p>
       </div>
       <button @click="showNewPost = true" class="btn-primary">
-        ✨ 发布作品
+        发布作品
       </button>
     </div>
 
@@ -16,7 +16,7 @@
         <!-- 标题和标签 -->
         <div class="post-header">
           <h3 class="post-title">{{ post.title }}</h3>
-          <span v-if="post.is_ai_generated" class="ai-badge">🤖 AI生成</span>
+          <span v-if="post.is_ai_generated" class="ai-badge">AI生成</span>
         </div>
         
         <!-- 文字预览 -->
@@ -25,8 +25,8 @@
         <!-- 底部信息 -->
         <div class="post-footer">
           <div class="post-meta">
-            <span class="post-likes">❤️ {{ post.likes || 0 }}</span>
-            <span class="post-comments">💬 {{ getCommentCount(post.id) }}</span>
+            <span class="post-likes">{{ post.likes || 0 }}</span>
+            <span class="post-comments">{{ getCommentCount(post.id) }}</span>
           </div>
           <div class="post-author">
             <span class="author-name">{{ post.user_id?.substring(0, 8) }}</span>
@@ -44,7 +44,7 @@
     <div v-if="showNewPost" class="modal-overlay" @click.self="showNewPost = false">
       <div class="modal-card">
         <div class="modal-header">
-          <h2>✨ 发布新作品</h2>
+          <h2>发布新作品</h2>
           <button @click="showNewPost = false" class="close-modal">✕</button>
         </div>
         <div class="modal-body">
@@ -85,6 +85,10 @@
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 8px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .page-subtitle {
