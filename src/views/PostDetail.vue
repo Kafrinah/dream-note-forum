@@ -5,7 +5,7 @@
     <div class="post-detail-card">
       <div class="post-detail-header">
         <h1 class="post-detail-title">{{ post.title }}</h1>
-        <span v-if="post.is_ai_generated" class="ai-badge-detail">🤖 AI 生成内容</span>
+        <span v-if="post.is_ai_generated" class="ai-badge-detail">AI 生成内容</span>
       </div>
       <div class="post-detail-meta">
         <span>👤 {{ post.user_id?.substring(0, 8) }}</span>
@@ -43,7 +43,7 @@
 .back-btn {
   background: none;
   border: none;
-  color: #6366f1;
+  color: #A9C9C4;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -74,7 +74,7 @@
 }
 
 .ai-badge-detail {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   color: white;
   font-size: 12px;
   padding: 6px 14px;
@@ -84,11 +84,11 @@
 
 .post-detail-meta {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   margin-bottom: 28px;
   padding-bottom: 20px;
   border-bottom: 1px solid #f0f2f5;
-  color: #6b7280;
+  color: #a3a8b3;
 }
 
 .like-btn {
@@ -107,7 +107,7 @@
 }
 
 .like-btn.liked {
-  color: #ef4444;
+  color: #eacede;
 }
 
 .post-detail-content {
@@ -142,8 +142,8 @@
 }
 
 .comment-user {
-  font-weight: 700;
-  color: #4f46e5;
+  font-weight: 500;
+  color: #a3a8b3;
   margin-bottom: 8px;
   font-size: 14px;
 }
@@ -172,7 +172,7 @@
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #614A44;
   color: white;
   padding: 12px 24px;
   border: none;

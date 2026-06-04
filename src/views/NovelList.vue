@@ -58,14 +58,14 @@
   font-size: 32px;
   font-weight: 700;
   color: #1f2937;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -131,7 +131,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  background: #ef4444;
+  background: #614A44;
   color: white;
   border: none;
   padding: 4px 12px;

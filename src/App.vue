@@ -39,11 +39,11 @@
             <span>梦镜</span>
           </div>
           <div class="nav-links">
-            <router-link to="/writing">📝 随记</router-link> 
-            <router-link to="/novels">📚 写作</router-link>       
+            <router-link to="/writing">📝 随记</router-link>
+            <router-link to="/novels">📚 写作</router-link>
             <router-link to="/forum">🌐 论坛</router-link>
-            <router-link to="/novel">✨ 灵感</router-link>
-             
+            <router-link to="/novel" class="hide-on-small">✨ 灵感</router-link>
+
             <div class="dropdown" :class="{ 'mobile-open': mobileDropdownOpen }">
               <span class="dropdown-trigger" @click="toggleMobileDropdown">⚪ 我的</span>
               <div class="dropdown-menu" v-show="!isMobile || mobileDropdownOpen">
@@ -72,42 +72,105 @@
 </template>
 
 <style scoped>
-/* 样式保持不变 */
+/* ========== Logo 样式 ========== */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 20px;
   font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #ada4a1, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* 下拉菜单 - 桌面端 */
+/* ========== 导航栏基础样式 ========== */
+.nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+  gap: 16px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #614A44, #614A44);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links a:hover {
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 小窗口时隐藏「灵感」链接 */
+@media (max-width: 680px) {
+  .hide-on-small {
+    display: none;
+  }
+}
+
+/* 更小时隐藏更多链接 */
+@media (max-width: 550px) {
+  .nav-links a:nth-child(3) {
+    display: none;  /* 隐藏论坛 */
+  }
+}
+
+/* ========== 下拉菜单 ========== */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
 .dropdown-trigger {
-  padding: 8px 16px;
+  padding: 10px 16px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 14px;
   border-radius: 10px;
   transition: all 0.2s;
   cursor: pointer;
   display: inline-block;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #614A44, #ada4a1);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .dropdown-trigger:hover {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -136,7 +199,27 @@
   }
 }
 
-/* 移动端样式 - 保持一行 */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.1s;
+  background: linear-gradient(135deg, #614A44, #ada4a1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dropdown-menu a:hover {
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ========== 移动端样式 ========== */
 @media (max-width: 768px) {
   .nav-inner {
     flex-wrap: wrap;
@@ -177,10 +260,25 @@
   }
 }
 
+/* ========== 用户区域 ========== */
 .nav-user {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #A9C9C4;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.logout-btn:hover {
+  background: #d6e3e1;
 }
 
 /* 手机端隐藏邮箱 */
@@ -194,20 +292,7 @@
   }
 }
 
-.logout-btn {
-  background: none;
-  border: none;
-  color: #ef4444;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 8px;
-}
-
-.logout-btn:hover {
-  background: #fee2e2;
-}
-
+/* ========== 登录界面样式 ========== */
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -239,7 +324,7 @@
 .login-header h1 {
   font-size: 32px;
   font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #614A44, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -269,7 +354,7 @@
 }
 
 .pixel-btn-primary {
-  background: #6366f1;
+  background: #614A44;
   color: white;
 }
 
@@ -293,79 +378,13 @@
 }
 
 .error-msg {
-  color: #ef4444;
+  color: #A9C9C4;
   font-size: 14px;
   text-align: center;
   margin-top: 16px;
 }
 
-.nav {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 64px;
-  gap: 16px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 15px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.nav-links a:hover {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 16px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.1s;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.dropdown-menu a:hover {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
+/* ========== 容器样式 ========== */
 .container {
   max-width: 1200px;
   margin: 0 auto;

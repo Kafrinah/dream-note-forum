@@ -93,7 +93,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -123,7 +123,7 @@
   font-size: 32px;
   display: block;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -132,7 +132,7 @@
 .stat-value {
   font-size: 28px;
   font-weight: 700;
-  color: #6366f1;
+  color: #897d7a;
   display: block;
 }
 
@@ -155,22 +155,22 @@
   gap: 16px;
   position: relative;
   transition: all 0.2s;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #fef3f1;
 }
 
 .achievement-card.unlocked {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
-  border-color: #f59e0b;
+  border-color: #fef3f1;
 }
 
 .achievement-card.claimed {
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-  border-color: #10b981;
+  background: linear-gradient(135deg, #F9EDD7, #A9C9C4);
+  border-color: #fef3f1;
 }
 
 .achievement-icon {
   font-size: 48px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #614A44, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -202,7 +202,7 @@
 
 .progress-fill {
   height: 100%;
-  background: #6366f1;
+  background: #938682;
   border-radius: 3px;
   transition: width 0.3s;
 }
@@ -231,7 +231,7 @@
 }
 
 .claim-btn {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
   border: none;
   padding: 6px 16px;
@@ -243,13 +243,13 @@
 }
 
 .claim-btn:hover {
-  background: #059669;
+  background: #A9C9C4;
   transform: scale(1.05);
 }
 
 .claimed-badge {
   font-size: 12px;
-  color: #10b981;
+  color: #857d7b;
   font-weight: 600;
 }
 
@@ -262,7 +262,7 @@
   position: fixed;
   top: 80px;
   right: 20px;
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
   border-radius: 16px;
   padding: 16px 20px;

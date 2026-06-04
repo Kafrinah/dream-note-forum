@@ -115,14 +115,14 @@
   font-size: 32px;
   font-weight: 700;
   color: #1f2937;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -203,7 +203,7 @@
 
 .progress-fill {
   height: 100%;
-  background: #6366f1;
+  background: #A9C9C4;
   border-radius: 2px;
 }
 
@@ -211,7 +211,7 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background: #ef4444;
+  background: #614A44;
   color: white;
   border: none;
   padding: 4px 10px;
@@ -244,7 +244,7 @@
 }
 
 .upload-area:hover {
-  border-color: #6366f1;
+  border-color: #A9C9C4;
   background: #f9fafb;
 }
 
@@ -352,7 +352,7 @@
 }
 
 .pdf-nav-btn {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -375,7 +375,7 @@
 }
 
 .save-hint {
-  color: #10b981;
+  color: #A9C9C4;
   font-size: 12px;
   margin-left: 8px;
   animation: fadeOut 1s ease-out forwards;
@@ -401,7 +401,7 @@
 
 .download-btn {
   margin-top: 16px;
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   border: none;
   padding: 10px 20px;

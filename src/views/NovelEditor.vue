@@ -230,7 +230,7 @@
   border: none;
   font-size: 16px;
   cursor: pointer;
-  color: #6366f1;
+  color: #614A44;
 }
 
 .novel-title-input {
@@ -322,7 +322,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #6366f1;
+  color: #614A44;
   font-size: 12px;
 }
 
@@ -400,7 +400,7 @@
 
 .chapter-item.active {
   background: #e0e7ff;
-  color: #6366f1;
+  color: #614A44;
 }
 
 .chapter-title {
@@ -439,7 +439,7 @@
 
 .chapter-title-input:focus {
   outline: none;
-  border-bottom-color: #6366f1;
+  border-bottom-color: #614A44;
 }
 
 .chapter-meta {
@@ -493,7 +493,7 @@
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #614A44;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -502,7 +502,7 @@
 }
 
 .btn-ai {
-  background: #8b5cf6;
+  background: #614A44;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -546,7 +546,7 @@
 }
 
 .message.user .message-content {
-  background: #6366f1;
+  background: #614A44;
   color: white;
 }
 
@@ -587,7 +587,7 @@
 
 .ai-send-btn {
   padding: 6px 16px;
-  background: #6366f1;
+  background: #614A44;
   color: white;
   border: none;
   border-radius: 20px;

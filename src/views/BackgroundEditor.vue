@@ -123,7 +123,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -163,17 +163,17 @@
 }
 
 .tool-btn.active {
-  background: #6366f1;
+  background: #807c74;
   color: white;
 }
 
 .btn-primary {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
 }
 
 .btn-danger {
-  background: #ef4444;
+  background: #614A44;
   color: white;
 }
 
@@ -306,7 +306,7 @@
 }
 
 .btn-danger-small {
-  background: #ef4444;
+  background: #614A44;
   color: white;
 }
 </style>

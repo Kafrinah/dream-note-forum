@@ -104,7 +104,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -142,7 +142,7 @@
 }
 
 .publish-btn {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -154,11 +154,11 @@
 }
 
 .publish-btn:hover {
-  background: #059669;
+  background: #A9C9C4;
 }
 
 .delete-btn {
-  background: #ef4444;
+  background: #614A44;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -170,7 +170,7 @@
 }
 
 .delete-btn:hover {
-  background: #dc2626;
+  background: #614A44;
 }
 
 .empty-state {
@@ -268,7 +268,7 @@
 }
 
 .btn-publish {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -279,11 +279,11 @@
 }
 
 .btn-publish:hover {
-  background: #059669;
+  background: #A9C9C4;
 }
 
 .btn-danger {
-  background: #ef4444;
+  background: #614A44;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -294,7 +294,7 @@
 }
 
 .btn-danger:hover {
-  background: #dc2626;
+  background: #56423d;
 }
 
 .btn-secondary {
@@ -324,7 +324,7 @@
 }
 
 .scene-tag.active {
-  background: #6366f1;
+  background: #614A44;
   color: white;
 }
 

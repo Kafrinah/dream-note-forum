@@ -36,42 +36,42 @@ body {
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #A9C9C4;
   transform: translateY(-2px);
 }
 
 .btn-success {
-  background: #10b981;
+  background: #F9EDD7;
   color: white;
 }
 
 .btn-success:hover {
-  background: #059669;
+  background: #F9EDD7;
   transform: translateY(-2px);
 }
 
 .btn-purple {
-  background: #8b5cf6;
+  background: #A9C9C4;
   color: white;
 }
 
 .btn-purple:hover {
-  background: #7c3aed;
+  background: #A9C9C4;
   transform: translateY(-2px);
 }
 
 .btn-danger {
-  background: #ef4444;
+  background: #614A44;
   color: white;
 }
 
 .btn-danger:hover {
-  background: #dc2626;
+  background: #614A44;
 }
 
 /* 卡片 - 无边框，纯白块 */
@@ -154,7 +154,7 @@ textarea {
 }
 
 .nav-links a:hover {
-  color: #6366f1;
+  color: #A9C9C4;
 }
 
 /* 场景标签 - 纯色色块 */
@@ -173,7 +173,7 @@ textarea {
 }
 
 .scene-tag.active {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
 }
 

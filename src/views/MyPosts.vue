@@ -39,7 +39,7 @@
         </div>
         <div class="modal-body">
           <p>确定要删除帖子「{{ postToDelete?.title }}」吗？</p>
-          <p style="color: #ef4444; font-size: 14px; margin-top: 8px;">此操作不可恢复，所有评论和点赞也会被删除。</p>
+          <p style="color: #614A44; font-size: 14px; margin-top: 8px;">此操作不可恢复，所有评论和点赞也会被删除。</p>
         </div>
         <div class="modal-footer">
           <button @click="showDeleteDialog = false" class="btn-secondary">取消</button>
@@ -56,7 +56,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -115,7 +115,7 @@
 }
 
 .ai-badge {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   color: white;
   font-size: 11px;
   padding: 4px 10px;
@@ -136,7 +136,7 @@
 }
 
 .delete-btn {
-  background: #ef4444;
+  background: #614A44;
   color: white;
   border: none;
   padding: 6px 16px;
@@ -148,7 +148,7 @@
 }
 
 .delete-btn:hover {
-  background: #dc2626;
+  background: #614A44;
 }
 
 .post-preview {
@@ -248,7 +248,7 @@
 }
 
 .btn-danger {
-  background: #ef4444;
+  background: #614A44;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -259,11 +259,11 @@
 }
 
 .btn-danger:hover {
-  background: #dc2626;
+  background: #614A44;
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 10px 20px;
   border: none;

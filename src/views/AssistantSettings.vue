@@ -36,7 +36,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -78,7 +78,7 @@
 }
 
 .saved-name {
-  color: #10b981;
+  color: #A9C9C4;
   font-size: 16px;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 16px 32px;
   border: none;
@@ -139,7 +139,7 @@
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #A9C9C4;
 }
 </style>
 

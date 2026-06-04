@@ -85,7 +85,7 @@
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -97,7 +97,7 @@
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #614A44;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -109,7 +109,7 @@
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #A9C9C4;
 }
 
 /* 双列瀑布流 */
@@ -159,7 +159,7 @@
 }
 
 .ai-badge {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  background: linear-gradient(135deg, #614A44, #614A44);
   color: white;
   font-size: 11px;
   padding: 4px 10px;

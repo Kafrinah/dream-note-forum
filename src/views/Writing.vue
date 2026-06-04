@@ -87,7 +87,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -137,13 +137,13 @@
 }
 
 .scene-btn.active {
-  background: #6366f1;
+  background: #F9EDD7;
   color: white;
 }
 
 .scene-icon {
   font-size: 24px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -151,7 +151,8 @@
 
 .scene-name {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 550;
+  color: #6b7280;
 }
 
 /* 右侧写作表单 */
@@ -175,7 +176,7 @@
 
 .title-input:focus {
   outline: none;
-  border-bottom-color: #6366f1;
+  border-bottom-color: #F9EDD7;
 }
 
 .content-textarea {
@@ -214,21 +215,21 @@
 }
 
 .btn-success {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
 }
 
 .btn-success:hover {
-  background: #059669;
+  background: #614A44;
 }
 
 .btn-purple {
-  background: #8b5cf6;
+  background: #614A44;
   color: white;
 }
 
 .btn-purple:hover {
-  background: #7c3aed;
+  background: #A9C9C4;
 }
 
 /* 响应式：小屏幕时竖条菜单变横向 */
@@ -268,7 +269,7 @@
 }
 
 .ai-chat-header {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   color: white;
   padding: 20px 24px;
   display: flex;
@@ -311,7 +312,7 @@
 }
 
 .message.user .message-bubble {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
 }
 
@@ -364,7 +365,7 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 2px solid #8b5cf6;
+  border: 2px solid #A9C9C4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,7 +380,7 @@
 .pixel-name {
   font-size: 11px;
   font-weight: 600;
-  color: #8b5cf6;
+  color: #A9C9C4;
   background: white;
   padding: 3px 10px;
   border-radius: 20px;

@@ -79,7 +79,7 @@
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -114,7 +114,7 @@
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: #6366f1;
+  color: #807572;
 }
 
 .stat-label {
@@ -154,7 +154,7 @@
 .type-icon {
   font-size: 20px;
   width: 32px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #F9EDD7, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -177,7 +177,7 @@
 
 .type-bar-fill {
   height: 100%;
-  background: #6366f1;
+  background: #a49b98;
   border-radius: 4px;
   transition: width 0.3s;
 }
@@ -207,7 +207,7 @@
 .bar {
   width: 100%;
   max-width: 50px;
-  background: #6366f1;
+  background: #A9C9C4;
   border-radius: 6px 6px 0 0;
   transition: height 0.3s;
   min-height: 4px;
@@ -242,6 +242,10 @@
 
 .recent-type {
   font-size: 18px;
+  background: linear-gradient(135deg, #F9EDD7, #A9C9C4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .recent-title {
@@ -256,7 +260,7 @@
 
 .recent-words {
   font-size: 12px;
-  color: #10b981;
+  color: #A9C9C4;
 }
 
 .recent-time {

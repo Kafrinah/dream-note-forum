@@ -69,7 +69,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -100,7 +100,7 @@
 .slot-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-color: #6366f1;
+  border-color: #A9C9C4;
 }
 
 .slot-preview {
@@ -132,7 +132,7 @@
 }
 
 .delete-slot-btn {
-  background: #ef4444;
+  background: #614A44;
   color: white;
   border: none;
   padding: 4px 10px;
@@ -230,7 +230,7 @@
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -241,7 +241,7 @@
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #A9C9C4;
 }
 </style>
 

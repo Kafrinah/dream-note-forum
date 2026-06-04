@@ -57,7 +57,7 @@
   font-weight: 800;
   margin-bottom: 12px;
   color: #1f2937;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -136,11 +136,11 @@
 
 .prompt-section textarea:focus {
   outline: none;
-  border-color: #6366f1;
+  border-color: #A9C9C4;
 }
 
 .generate-btn {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 14px 28px;
   border: none;
@@ -152,7 +152,7 @@
 }
 
 .generate-btn:hover:not(:disabled) {
-  background: #4f46e5;
+  background: #A9C9C4;
   transform: translateY(-1px);
 }
 
@@ -208,12 +208,12 @@
 }
 
 .publish-btn {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
 }
 
 .publish-btn:hover {
-  background: #059669;
+  background: #A9C9C4;
 }
 </style>
 
