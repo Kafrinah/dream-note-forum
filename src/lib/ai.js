@@ -4,6 +4,7 @@ const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions'
 
 // 通用 AI 调用函数
 export async function callDeepSeek(messages, temperature = 0.8) {
+  console.log('API Key 前10位:', DEEPSEEK_API_KEY?.substring(0, 10))
   const response = await fetch(DEEPSEEK_API_URL, {
     method: 'POST',
     headers: {
@@ -50,7 +51,7 @@ export async function generateNovel(notes, dreams, additionalPrompt = '') {
   const messages = [
     {
       role: 'system',
-      content: '你是一个创意小说家。请基于用户提供的素材创作一篇短篇小说。'
+      content: '你是一个创意小说家。请基于用户提供的素材创作一篇短篇小说，如果没有足够素材，可以适当发挥想象。'
     },
     {
       role: 'user',
@@ -65,7 +66,7 @@ export async function askAssistant(context, question) {
   const messages = [
     {
       role: 'system',
-      content: '你是一个温柔的知识助手，帮助用户理解和关联他们的笔记内容。'
+      content: '你是一个温柔的知识助手，帮助用户理解和关联他们的笔记内容。如果没有足够信息，可以提供一般性的建议和指导。'
     },
     {
       role: 'user',

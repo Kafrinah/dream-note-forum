@@ -443,6 +443,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '../lib/supabase.js'
 import { generateCroppedAvatarSVG } from '../lib/avatarHelper.js'
+import { askAssistant } from '../lib/ai.js'
 
 const scenes = [
   { value: 'diary', name: '日记', icon: '📝' },
@@ -502,21 +503,32 @@ const saveEntry = async () => {
 const askAI = async () => {
   if (!aiQuestion.value) return
 
+  // 添加用户消息
   chatMessages.value.push({
     id: Date.now(),
     role: 'user',
     content: aiQuestion.value
   })
 
-  setTimeout(() => {
+  const userQuestion = aiQuestion.value
+  aiQuestion.value = ''
+
+  try {
+    // 调用真实 AI API
+    const answer = await askAssistant(content.value, userQuestion)
     chatMessages.value.push({
       id: Date.now() + 1,
       role: 'assistant',
-      content: `关于「${aiQuestion.value}」，这是一个很好的问题！建议你多记录相关内容，AI会帮你分析和整理。`
+      content: answer
     })
-  }, 500)
-
-  aiQuestion.value = ''
+  } catch (error) {
+    console.error('AI 调用失败:', error)
+    chatMessages.value.push({
+      id: Date.now() + 1,
+      role: 'assistant',
+      content: 'AI 服务暂时不可用，请稍后再试。'
+    })
+  }
 }
 
 const loadAssistant = async () => {
