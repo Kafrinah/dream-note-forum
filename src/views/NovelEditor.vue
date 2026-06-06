@@ -206,7 +206,7 @@
   height: 87vh;
   display: flex;
   flex-direction: column;
-  background: #f8fafc;
+  background: #faf6ee;;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -217,7 +217,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
-  background: white;
+  background:  #faf6ee;;
   border-bottom: 1px solid #e5e7eb;
   flex-wrap: wrap;
   gap: 12px;
@@ -244,9 +244,9 @@
   font-size: 18px;
   font-weight: 600;
   padding: 6px 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #fcfbf9;;
   border-radius: 8px;
-  background: #f9fafb;
+  background: #fcfaf6;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -291,7 +291,7 @@
 
 .left-panel {
   width: 280px;
-  background: white;
+  background: #faf6ee;
   border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
@@ -302,19 +302,15 @@
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
-             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .right-panel {
   width: 320px;
-  background: white;
+  background: #faf6ee;
   border-left: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   transition: width 0.3s;
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
-             5px 5px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -364,7 +360,7 @@
   padding: 8px;
   cursor: pointer;
   border-radius: 8px;
-  background: #f9fafb;
+  background: #fffcf7;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -422,12 +418,12 @@
 }
 
 .chapter-item:hover {
-  background: #f1f5f9;
+  background: #faf6ee;
 }
 
 .chapter-item.active {
-  background: #e0e7ff;
-  color: #614A44;
+  background: #faf6ee;
+  color: #faf6ee;;
 }
 
 .chapter-title {
@@ -445,13 +441,16 @@
 
 /* 章节编辑器 */
 .chapter-editor {
-  background: white;
+  background: #fefbf5;
   border-radius: 16px;
   padding: 24px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-header {
   margin-bottom: 20px;
+  background: #fefbf5;
 }
 
 .chapter-title-input {
@@ -459,32 +458,33 @@
   font-size: 24px;
   font-weight: 600;
   border: none;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid #faf6ee;
   padding: 8px 0;
   margin-bottom: 12px;
+  background: #faf6ee;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-title-input:focus {
   outline: none;
-  border-bottom-color: #614A44;
+  background: #faf6ee;
+  border-bottom-color: #faf6ee;
 }
 
 .chapter-meta {
   display: flex;
   gap: 16px;
   font-size: 12px;
-  color: #6b7280;
+  color: #7f7c76;;
 }
 
 .prev-chapter-preview {
-  background: #f9fafb;
+  background: #faf6ee;
   padding: 12px;
   border-radius: 12px;
   margin-bottom: 20px;
   cursor: pointer;
-  border: 1px solid #e5e7eb;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -510,6 +510,7 @@
   min-height: 400px;
   padding: 16px;
   border: 1px solid #e5e7eb;
+  background: #faf6ee;
   border-radius: 12px;
   font-family: inherit;
   font-size: 16px;

@@ -57,7 +57,7 @@
   font-weight: 800;
   margin-bottom: 12px;
   color: #1f2937;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -70,7 +70,7 @@
 }
 
 .selector-section {
-  background: white;
+  background: #faf6ee;
   border-radius: 24px;
   padding: 24px;
   margin-bottom: 24px;
@@ -87,6 +87,7 @@
 
 .material-group {
   flex: 1;
+  border-radius: 24px;
   min-width: 200px;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -95,13 +96,13 @@
 .material-group h4 {
   margin-bottom: 12px;
   font-size: 16px;
-  color: #374151;
+  color: #625f52;
 }
 
 .material-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   margin-bottom: 8px;
   padding: 6px;
   border-radius: 8px;
@@ -126,23 +127,24 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #374151;
+  color: #6b685c;
 }
 
 .prompt-section textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #faf6ee;
   border-radius: 12px;
   resize: vertical;
   font-family: inherit;
+  background: #faf6ee;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .prompt-section textarea:focus {
   outline: none;
-  border-color: #A9C9C4;
+  border-color: #faf6ee;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }

@@ -109,7 +109,7 @@
 
 <style scoped>
 .pixel-editor {
-  background: white;
+  background: #faf6ee;
   border-radius: 32px;
   padding: 32px;
   width: 100%;
@@ -141,7 +141,7 @@
   gap: 16px;
   margin-bottom: 16px;
   padding: 12px;
-  background: #f9fafb;
+  background: #faf6ee;
   border-radius: 20px;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
@@ -157,7 +157,7 @@
   font-size: 14px;
   font-weight: 500;
   background: white;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #faf6ee;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.2s;
@@ -174,11 +174,11 @@
 }
 
 .tool-btn:hover:not(.active) {
-  background: #e5e7eb;
+  background: #e6e3de;
 }
 
 .tool-hint {
-  background: #fef3c7;
+  background: #faf6ee;
   color: #d97706;
   padding: 8px 16px;
   border-radius: 12px;
@@ -202,7 +202,7 @@
 .hint {
   text-align: center;
   font-size: 12px;
-  color: #9ca3af;
+  color: #615f5b;
   margin: 12px 0;
 }
 
@@ -210,7 +210,7 @@
   overflow: auto;
   display: flex;
   justify-content: center;
-  background: #e5e7eb;
+  background: #f4efe6;
   padding: 20px;
   border-radius: 20px;
   margin: 16px 0;
@@ -243,7 +243,7 @@
 }
 
 .color-palette {
-  background: #f9fafb;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 16px;
   margin: 20px 0;
@@ -306,7 +306,7 @@
   gap: 12px;
   margin: 16px 0;
   padding: 10px;
-  background: #f9fafb;
+  background: #faf6ee;
   border-radius: 12px;
 }
 
@@ -339,7 +339,7 @@
 }
 
 .btn-secondary {
-  background: #f3f4f6;
+  background: #f9f9f9;
   color: #4b5563;
   padding: 12px 24px;
   border: none;
@@ -352,7 +352,7 @@
 }
 
 .btn-secondary:hover {
-  background: #e5e7eb;
+  background: #e4e2dd;
 }
 
 .btn-primary {

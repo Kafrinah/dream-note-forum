@@ -69,7 +69,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -88,13 +88,13 @@
 }
 
 .slot-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 16px;
   padding: 16px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
-  border: 2px solid #ffffff;
+  border: 2px solid #faf6ee;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -102,14 +102,14 @@
 .slot-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-color: #ffffff;
+  border-color: #faf6ee;
 }
 
 .slot-preview {
   width: 100px;
   height: 100px;
   margin: 0 auto 12px;
-  background: #f3f4f6;
+  background: #faf6ee;
   border-radius: 12px;
   overflow: hidden;
   image-rendering: crisp-edges;
@@ -150,7 +150,7 @@
 .empty-slots {
   text-align: center;
   padding: 60px;
-  color: #9ca3af;
+  color: #faf6ee;
   font-size: 16px;
   grid-column: 1 / -1;
 }

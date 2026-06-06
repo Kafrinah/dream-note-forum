@@ -123,7 +123,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -136,7 +136,7 @@
 }
 
 .toolbar {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 16px 24px;
   margin-bottom: 24px;
@@ -186,7 +186,7 @@
 }
 
 .sticker-library {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 24px;
@@ -211,7 +211,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px;
-  background: #f9fafb;
+  background: #faf6ee;
   border-radius: 16px;
   cursor: grab;
   transition: all 0.2s;
@@ -224,7 +224,7 @@
 }
 
 .sticker-item:hover {
-  background: #e5e7eb;
+  background: #faf6ee;
   transform: translateY(-2px);
 }
 
@@ -255,10 +255,10 @@
   position: relative;
   width: 100%;
   min-height: 600px;
-  background: #e5e7eb;
+  background: #faf6ee;
   border-radius: 24px;
   overflow: hidden;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #faf6ee;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }

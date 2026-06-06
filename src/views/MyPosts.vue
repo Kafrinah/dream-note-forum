@@ -56,7 +56,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -75,11 +75,11 @@
 }
 
 .post-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 20px;
   transition: all 0.2s;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #faf6ee;
   cursor: pointer;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);

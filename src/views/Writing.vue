@@ -24,14 +24,14 @@
         <input 
           v-model="title" 
           type="text" 
-          placeholder="标题..." 
+          placeholder="   标题..." 
           class="title-input"
         >
         
         <textarea 
           v-model="content" 
           rows="16" 
-          placeholder="在这里写内容..." 
+          placeholder="   在这里写内容..." 
           class="content-textarea"
         ></textarea>
 
@@ -87,7 +87,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -167,10 +167,10 @@
 /* 右侧写作表单 */
 .writing-form {
   flex: 1;
-  background: white;
+  background: #faf6ee;
   border-radius: 24px;
   padding: 28px;
-  border: 1px solid #ffffff;
+  border: 1px solid #faf6ee;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -180,17 +180,18 @@
   font-size: 24px;
   font-weight: 600;
   border: none;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid #faf6ee;
   padding: 8px 0;
   margin-bottom: 20px;
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
-             5px 5px 10px rgba(0, 0, 0, 0.1);
+  background: #faf6ee;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .title-input:focus {
   outline: none;
-  background: #f7f7f7;
-  border-bottom-color: #f7f7f7;
+  background: #fdf9f1;
+  border-bottom-color: #fdf9f1;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -202,13 +203,14 @@
   border: none;
   padding: 8px 0;
   resize: vertical;
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
-             5px 5px 10px rgba(0, 0, 0, 0.1);
+  background: #faf6ee;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .content-textarea:focus {
   outline: none;
-  background: #f7f7f7;
+  background: #fdf9f1;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }

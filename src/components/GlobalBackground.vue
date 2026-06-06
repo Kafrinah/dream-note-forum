@@ -64,7 +64,7 @@ const loadUserBackground = async () => {
 // 生成背景样式
 const backgroundStyle = computed(() => {
   // 默认背景渐变
-  let bgGradient = 'linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%)'
+  let bgGradient = 'linear-gradient(135deg, #faf6ee 0%, #faf6ee 100%)'
   
   if (!backgroundConfig.value || !backgroundConfig.value.stickers || backgroundConfig.value.stickers.length === 0) {
     return { background: bgGradient }
@@ -80,8 +80,8 @@ const backgroundStyle = computed(() => {
   
   // 绘制渐变背景
   const gradient = ctx.createLinearGradient(0, 0, width, height)
-  gradient.addColorStop(0, '#f5f7fa')
-  gradient.addColorStop(1, '#f0f2f5')
+  gradient.addColorStop(0, '#faf6ee')
+  gradient.addColorStop(1, '#faf6ee')
   ctx.fillStyle = gradient
   ctx.fillRect(0, 0, width, height)
   
@@ -154,7 +154,7 @@ const backgroundStyle = computed(() => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundColor: '#f5f7fa'
+    backgroundColor: '#faf6ee'
   }
 })
 

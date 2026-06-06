@@ -52,7 +52,7 @@
 }
 
 .post-detail-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 32px;
   padding: 36px;
   margin-bottom: 28px;
@@ -122,7 +122,7 @@
 }
 
 .comments-card {
-  background: white;
+  background: #faf6ee;;
   border-radius: 32px;
   padding: 36px;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
@@ -170,7 +170,7 @@
   width: 100%;
   padding: 16px 20px;
   font-size: 16px;
-  background: #f3f4f6;
+  background: #faf6ee;
   border: none;
   border-radius: 20px;
   resize: vertical;

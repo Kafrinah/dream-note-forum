@@ -80,7 +80,7 @@
 <style scoped>
 .pixel-editor-simple {
   padding: 16px;
-  background: #f9fafb;
+  background: #ffffff;
   border-radius: 20px;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);

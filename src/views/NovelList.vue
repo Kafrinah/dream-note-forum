@@ -82,7 +82,7 @@
 }
 
 .novel-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -104,6 +104,9 @@
 
 .novel-cover {
   font-size: 48px;
+  border-radius: 16px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .novel-info {

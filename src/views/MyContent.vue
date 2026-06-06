@@ -104,7 +104,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -130,7 +130,7 @@
 }
 
 .card {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 20px;
   transition: all 0.2s;
@@ -201,7 +201,7 @@
 }
 
 .modal-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 32px;
   width: 90%;
   max-width: 800px;
@@ -308,8 +308,8 @@
 }
 
 .btn-secondary {
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #faf6ee;
+  color: #76726a;
   padding: 10px 20px;
   border: none;
   border-radius: 40px;
@@ -329,7 +329,7 @@
   font-size: 15px;
   font-weight: 500;
   border-radius: 40px;
-  background: #f3f4f6;
+  background: #faf6ee;
   border: none;
   cursor: pointer;
   transition: all 0.2s;
@@ -359,7 +359,7 @@
   width: 100%;
   padding: 12px 16px;
   font-size: 15px;
-  background: #f3f4f6;
+  background: #faf6ee;
   border: none;
   border-radius: 12px;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),

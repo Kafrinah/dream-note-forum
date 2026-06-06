@@ -36,7 +36,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -49,7 +49,7 @@
 }
 
 .name-section {
-  background: white;
+  background: #faf6ee;
   border-radius: 28px;
   padding: 32px;
   margin-top: 40px;
@@ -74,7 +74,7 @@
   flex: 1;
   padding: 16px 20px;
   font-size: 18px;
-  background: #f3f4f6;
+  background: #faf6ee;
   border: none;
   border-radius: 16px;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
@@ -87,7 +87,7 @@
 }
 
 .preview-section {
-  background: white;
+  background: #faf6ee;
   border-radius: 28px;
   padding: 32px;
   margin-top: 24px;
@@ -105,7 +105,7 @@
   align-items: center;
   gap: 24px;
   padding: 24px;
-  background: #f9fafb;
+  background: #faf6ee;
   border-radius: 24px;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);

@@ -87,7 +87,7 @@
 
 /* ========== 导航栏基础样式 ========== */
 .nav {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   padding: 0 24px;
   position: sticky;

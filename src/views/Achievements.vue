@@ -93,7 +93,7 @@
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -108,7 +108,7 @@
 .stats-card {
   display: flex;
   gap: 20px;
-  background: white;
+  background: #faf6ee;
   border-radius: 24px;
   padding: 24px;
   margin-bottom: 32px;
@@ -150,7 +150,7 @@
 }
 
 .achievement-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 20px;
   display: flex;

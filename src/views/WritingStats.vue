@@ -79,7 +79,7 @@
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -99,11 +99,11 @@
 }
 
 .stat-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 20px;
   text-align: center;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #faf6ee;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -126,11 +126,11 @@
 }
 
 .section {
-  background: white;
+  background: #faf6ee;
   border-radius: 20px;
   padding: 24px;
   margin-bottom: 24px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #faf6ee;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -174,7 +174,7 @@
 .type-bar {
   flex: 1;
   height: 8px;
-  background: #e5e7eb;
+  background: #faf6ee;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
@@ -243,7 +243,7 @@
   align-items: center;
   gap: 12px;
   padding: 10px;
-  background: #f9fafb;
+  background: #faf6ee;
   border-radius: 12px;
   flex-wrap: wrap;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),

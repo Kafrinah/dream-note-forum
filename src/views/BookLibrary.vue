@@ -115,7 +115,7 @@
   font-size: 32px;
   font-weight: 700;
   color: #1f2937;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #614A44);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -140,7 +140,7 @@
 }
 
 .book-card {
-  background: white;
+  background: #faf6ee;
   border-radius: 16px;
   padding: 16px;
   cursor: pointer;
@@ -160,7 +160,7 @@
   width: 100%;
   height: 160px;
   border-radius: 12px;
-  background: #f3f4f6;
+  background: #faf6ee;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,8 +254,8 @@
 }
 
 .upload-area:hover {
-  border-color: #A9C9C4;
-  background: #f9fafb;
+  border-color: #ffffff;
+  background: #fffefd;
   box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -295,7 +295,7 @@
 .reader-container {
   width: 90%;
   height: 85%;
-  background: white;
+  background: #faf6ee;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
