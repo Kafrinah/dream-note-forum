@@ -114,11 +114,14 @@
           <span>🤖 AI 创作助手</span>
           <button @click="showAIPanel = !showAIPanel" class="close-panel-btn">✕</button>
         </div>
+        
+        <!-- AI 对话消息区域 - 带滚动条 -->
         <div class="ai-chat-messages" ref="chatMessagesRef">
           <div v-for="msg in aiMessages" :key="msg.id" :class="['message', msg.role]">
             <div class="message-content">{{ msg.content }}</div>
           </div>
         </div>
+        
         <div class="ai-input-area">
           <textarea 
             v-model="aiPrompt" 
@@ -200,7 +203,7 @@
 
 <style scoped>
 .novel-editor {
-  height: 100vh;
+  height: 87vh;
   display: flex;
   flex-direction: column;
   background: #f8fafc;
@@ -283,6 +286,7 @@
 .editor-three-columns {
   display: flex;
   flex: 1;
+  overflow: hidden;
 }
 
 .left-panel {
@@ -311,6 +315,7 @@
   transition: width 0.3s;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .right-panel.expanded {
@@ -326,6 +331,7 @@
   font-weight: 600;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
 
 .panel-actions {
@@ -555,6 +561,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-height: 0;
 }
 
 .message {
@@ -576,6 +583,7 @@
   line-height: 1.5;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
+  word-break: break-word;
 }
 
 .message.user .message-content {
@@ -593,7 +601,7 @@
   border-top: 1px solid #e5e7eb;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
              5px 5px 10px rgba(0, 0, 0, 0.1);
-  
+  flex-shrink: 0;
 }
 
 .ai-input-area textarea {
@@ -936,11 +944,11 @@ const callAI = async (action) => {
   
   let prompt = ''
   if (action === 'continue') {
-    prompt = `继续写下去，延续上述风格和情节，写接下来的内容。`
+    prompt = '继续写下去，延续上述风格和情节，写接下来的内容。'
   } else if (action === 'polish') {
-    prompt = `润色这段文字，保持原意但让表达更优美。`
+    prompt = '润色这段文字，保持原意但让表达更优美。'
   } else if (action === 'outline') {
-    prompt = `根据当前内容，生成下一章的大纲。`
+    prompt = '根据当前内容，生成下一章的大纲。'
   } else {
     return
   }
