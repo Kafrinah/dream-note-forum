@@ -53,6 +53,8 @@
   border-radius: 28px;
   padding: 32px;
   margin-top: 40px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .name-section label {
@@ -75,6 +77,8 @@
   background: #f3f4f6;
   border: none;
   border-radius: 16px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .saved-name {
@@ -87,6 +91,8 @@
   border-radius: 28px;
   padding: 32px;
   margin-top: 24px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .preview-section h3 {
@@ -101,6 +107,8 @@
   padding: 24px;
   background: #f9fafb;
   border-radius: 24px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .preview-avatar {
@@ -136,6 +144,8 @@
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {

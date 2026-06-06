@@ -204,6 +204,8 @@
   display: flex;
   flex-direction: column;
   background: #f8fafc;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* 顶部栏 */
@@ -231,6 +233,8 @@
   font-size: 16px;
   cursor: pointer;
   color: #614A44;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .novel-title-input {
@@ -240,6 +244,8 @@
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   background: #f9fafb;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .status-badge {
@@ -261,19 +267,22 @@
 }
 
 .save-btn {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .settings-btn {
   background: #f3f4f6;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* 三栏布局 */
 .editor-three-columns {
   display: flex;
   flex: 1;
-  overflow: hidden;
 }
 
 .left-panel {
@@ -289,6 +298,8 @@
   flex: 1;
   overflow-y: auto;
   padding: 20px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .right-panel {
@@ -298,6 +309,8 @@
   display: flex;
   flex-direction: column;
   transition: width 0.3s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .right-panel.expanded {
@@ -311,6 +324,8 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .panel-actions {
@@ -344,6 +359,8 @@
   cursor: pointer;
   border-radius: 8px;
   background: #f9fafb;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .volume-header:hover {
@@ -378,11 +395,15 @@
   cursor: pointer;
   font-size: 12px;
   padding: 2px 4px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .chapters-list {
   padding-left: 24px;
   margin-top: 4px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-item {
@@ -435,6 +456,8 @@
   border-bottom: 2px solid #e5e7eb;
   padding: 8px 0;
   margin-bottom: 12px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-title-input:focus {
@@ -456,6 +479,8 @@
   margin-bottom: 20px;
   cursor: pointer;
   border: 1px solid #e5e7eb;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .prev-chapter-preview span:first-child {
@@ -484,6 +509,8 @@
   font-size: 16px;
   line-height: 1.6;
   resize: vertical;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-actions {
@@ -499,6 +526,8 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-ai {
@@ -508,6 +537,8 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .no-chapter-selected {
@@ -543,6 +574,8 @@
   border-radius: 16px;
   font-size: 13px;
   line-height: 1.5;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .message.user .message-content {
@@ -558,6 +591,9 @@
 .ai-input-area {
   padding: 16px;
   border-top: 1px solid #e5e7eb;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .ai-input-area textarea {
@@ -567,6 +603,8 @@
   border-radius: 10px;
   resize: vertical;
   font-family: inherit;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .ai-actions {
@@ -583,6 +621,8 @@
   border-radius: 20px;
   font-size: 12px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .ai-send-btn {
@@ -592,6 +632,8 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .close-panel-btn {
@@ -645,6 +687,8 @@
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   margin-bottom: 16px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-footer {

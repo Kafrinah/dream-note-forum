@@ -71,6 +71,8 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .novel-grid {
@@ -89,11 +91,15 @@
   transition: all 0.2s;
   border: 1px solid #e5e7eb;
   position: relative;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .novel-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .novel-cover {
@@ -140,10 +146,14 @@
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .novel-card:hover .delete-btn {
   opacity: 1;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .empty-state {
@@ -192,6 +202,8 @@
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   margin-bottom: 16px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-footer {
@@ -208,6 +220,8 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 </style>
 

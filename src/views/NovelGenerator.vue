@@ -74,6 +74,8 @@
   border-radius: 24px;
   padding: 24px;
   margin-bottom: 24px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .material-list {
@@ -86,6 +88,8 @@
 .material-group {
   flex: 1;
   min-width: 200px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .material-group h4 {
@@ -132,11 +136,15 @@
   border-radius: 12px;
   resize: vertical;
   font-family: inherit;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .prompt-section textarea:focus {
   outline: none;
   border-color: #A9C9C4;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .generate-btn {
@@ -149,6 +157,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .generate-btn:hover:not(:disabled) {
@@ -181,6 +191,8 @@
   margin: 16px 0;
   max-height: 500px;
   overflow-y: auto;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .result-actions {
@@ -196,6 +208,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .copy-btn {

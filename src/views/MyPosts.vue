@@ -81,11 +81,15 @@
   transition: all 0.2s;
   border: 1px solid #e5e7eb;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-header {
@@ -121,6 +125,8 @@
   padding: 4px 10px;
   border-radius: 20px;
   font-weight: 500;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-meta {
@@ -145,6 +151,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .delete-btn:hover {
@@ -241,6 +249,8 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary:hover {
@@ -256,6 +266,8 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-danger:hover {
@@ -271,6 +283,8 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 </style>
 

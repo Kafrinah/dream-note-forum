@@ -106,10 +106,14 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
   background: #A9C9C4;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.8),
+             2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* 双列瀑布流 */
@@ -128,11 +132,14 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 标题区域 */
@@ -166,6 +173,8 @@
   border-radius: 20px;
   font-weight: 500;
   white-space: nowrap;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* 文字预览 */
@@ -249,6 +258,8 @@
   width: 90%;
   max-width: 550px;
   overflow: hidden;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
@@ -257,6 +268,8 @@
   align-items: center;
   padding: 20px 24px;
   border-bottom: 1px solid #e5e7eb;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header h2 {
@@ -287,6 +300,8 @@
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   margin-bottom: 16px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-textarea {
@@ -297,6 +312,8 @@
   border-radius: 12px;
   resize: vertical;
   font-family: inherit;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-footer {
@@ -316,10 +333,14 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary:hover {
   background: #e5e7eb;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.8),
+             2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .empty-state {

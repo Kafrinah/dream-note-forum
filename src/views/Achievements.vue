@@ -113,6 +113,8 @@
   padding: 24px;
   margin-bottom: 32px;
   justify-content: space-around;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .stat-item {
@@ -156,11 +158,15 @@
   position: relative;
   transition: all 0.2s;
   border: 1px solid #fef3f1;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .achievement-card.unlocked {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
   border-color: #fef3f1;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .achievement-card.claimed {

@@ -56,6 +56,8 @@
   border-radius: 32px;
   padding: 36px;
   margin-bottom: 28px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-detail-header {
@@ -80,6 +82,8 @@
   padding: 6px 14px;
   border-radius: 24px;
   font-weight: 500;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-detail-meta {
@@ -121,6 +125,8 @@
   background: white;
   border-radius: 32px;
   padding: 36px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .comments-title {
@@ -169,6 +175,8 @@
   border-radius: 20px;
   resize: vertical;
   font-family: inherit;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -180,6 +188,8 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 </style>
 

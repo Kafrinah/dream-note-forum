@@ -104,6 +104,8 @@
   padding: 20px;
   text-align: center;
   border: 1px solid #e5e7eb;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .stat-icon {
@@ -129,6 +131,8 @@
   padding: 24px;
   margin-bottom: 24px;
   border: 1px solid #e5e7eb;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .section-title {
@@ -173,6 +177,8 @@
   background: #e5e7eb;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .type-bar-fill {
@@ -211,6 +217,8 @@
   border-radius: 6px 6px 0 0;
   transition: height 0.3s;
   min-height: 4px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bar-label {
@@ -238,6 +246,8 @@
   background: #f9fafb;
   border-radius: 12px;
   flex-wrap: wrap;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .recent-type {

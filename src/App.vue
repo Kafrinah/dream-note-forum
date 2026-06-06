@@ -94,6 +94,8 @@
   top: 0;
   z-index: 100;
   border-bottom: 1px solid #e5e7eb;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-inner {

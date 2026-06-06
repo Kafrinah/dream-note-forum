@@ -8,28 +8,28 @@
           :class="{ active: tool === 'brush' }" 
           class="tool-btn"
         >
-          ✏️ 画笔
+          画笔
         </button>
         <button 
           @click="tool = 'eyedropper'" 
           :class="{ active: tool === 'eyedropper' }" 
           class="tool-btn"
         >
-          💧 吸色
+          吸色
         </button>
         <button 
           @click="tool = 'eraser'" 
           :class="{ active: tool === 'eraser' }" 
           class="tool-btn"
         >
-          🧽 橡皮
+          橡皮
         </button>
       </div>
 
       <div class="tool-group">
-        <button @click="clearCanvas" class="tool-btn">🗑️ 清空</button>
-        <button @click="autoDetectBorder" class="tool-btn">🔍 识别边框</button>
-        <button @click="save" class="tool-btn btn-primary">💾 保存</button>
+        <button @click="clearCanvas" class="tool-btn">清空</button>
+        <button @click="autoDetectBorder" class="tool-btn">识别边框</button>
+        <button @click="save" class="tool-btn btn-primary">保存</button>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
 
     <!-- 边框预览 -->
     <div v-if="borderPixels.length > 0" class="border-preview">
-      <div class="border-title">🔍 识别到的边框（{{ borderPixels.length }}个像素）</div>
+      <div class="border-title">识别到的边框（{{ borderPixels.length }}个像素）</div>
       <div class="border-hint">边框已自动识别，保存时会一起保存</div>
     </div>
 
@@ -60,10 +60,10 @@
         v-for="color in colors" 
         :key="color"
         class="color-option"
-        :style="{ backgroundColor: color, border: selectedColor === color ? '3px solid #6366f1' : '3px solid transparent' }"
+        :style="{ backgroundColor: color, border: selectedColor === color ? '3px solid #A9C9C4' : '3px solid transparent' }"
         @click="selectColor(color)"
       ></div>
-      <div class="color-option eraser" @click="selectColor('#f3f4f6')">🧽</div>
+      <div class="color-option eraser" @click="selectColor('#f3f4f6')"></div>
     </div>
 
     <div class="custom-color">
@@ -72,7 +72,7 @@
     </div>
 
     <div class="editor-hint">
-      💡 提示：绘制完图案后点击「识别边框」，边框内的区域将作为贴纸形状
+      提示：绘制完图案后点击「识别边框」，边框内的区域将作为贴纸形状
     </div>
   </div>
 </template>
@@ -82,6 +82,8 @@
   padding: 16px;
   background: #f9fafb;
   border-radius: 20px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .toolbar {
@@ -90,6 +92,8 @@
   margin-bottom: 16px;
   flex-wrap: wrap;
   gap: 12px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tool-group {
@@ -104,17 +108,23 @@
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tool-btn.active {
-  background: #6366f1;
+  background: #614A44;
   color: white;
-  border-color: #6366f1;
+  border-color: #614A44;
+  box-shadow: inset -3px -3px 6px #614A44,
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pixel-canvas-wrapper {
@@ -125,12 +135,16 @@
   padding: 16px;
   border-radius: 16px;
   margin-bottom: 16px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pixel-canvas {
   display: flex;
   flex-direction: column;
   background: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pixel-row {
@@ -152,6 +166,8 @@
   gap: 10px;
   justify-content: center;
   margin: 16px 0;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .color-option {
@@ -160,6 +176,8 @@
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .custom-color {
@@ -216,8 +234,8 @@ const size = 100
 const displaySize = 50
 const pixels = ref([])
 const tool = ref('brush')
-const selectedColor = ref('#FF6B6B')
-const customColor = ref('#FF6B6B')
+const selectedColor = ref('#A9C9C4')
+const customColor = ref('#A9C9C4')
 const borderPixels = ref([])
 
 const colors = [

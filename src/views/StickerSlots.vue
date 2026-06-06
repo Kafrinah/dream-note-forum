@@ -94,13 +94,15 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #ffffff;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .slot-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-color: #A9C9C4;
+  border-color: #ffffff;
 }
 
 .slot-preview {
@@ -112,6 +114,8 @@
   overflow: hidden;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .slot-preview svg {
@@ -139,6 +143,8 @@
   border-radius: 20px;
   font-size: 11px;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .empty-slots {
@@ -223,6 +229,8 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary:hover {
@@ -238,6 +246,8 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {

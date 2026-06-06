@@ -144,6 +144,8 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tool-group {
@@ -160,6 +162,8 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tool-btn.active {
@@ -170,11 +174,15 @@
 .btn-primary {
   background: #A9C9C4;
   color: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-danger {
   background: #614A44;
   color: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sticker-library {
@@ -182,6 +190,8 @@
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 24px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sticker-library h3 {
@@ -205,6 +215,8 @@
   border-radius: 16px;
   cursor: grab;
   transition: all 0.2s;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .sticker-item:active {
@@ -247,6 +259,8 @@
   border-radius: 24px;
   overflow: hidden;
   border: 2px solid #e5e7eb;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .empty-hint {

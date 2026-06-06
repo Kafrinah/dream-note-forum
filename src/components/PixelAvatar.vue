@@ -1,6 +1,6 @@
 <template>
   <div class="pixel-editor">
-    <h2 class="pixel-title">🎨 设计你的专属 AI 助手</h2>
+    <h2 class="pixel-title">设计你的专属 AI 助手</h2>
     <p class="pixel-subtitle">点击格子填色，创造一个属于你的小伙伴</p>
 
     <!-- 工具栏 -->
@@ -12,7 +12,7 @@
           class="tool-btn"
           title="画笔"
         >
-          ✏️ 画笔
+          画笔
         </button>
         <button 
           @click="tool = 'eyedropper'" 
@@ -20,7 +20,7 @@
           class="tool-btn"
           title="吸色笔"
         >
-          💧 吸色
+          吸色
         </button>
         <button 
           @click="tool = 'eraser'" 
@@ -28,7 +28,7 @@
           class="tool-btn"
           title="橡皮"
         >
-          🧽 橡皮
+          橡皮
         </button>
       </div>
 
@@ -42,7 +42,7 @@
 
     <!-- 当前工具提示 -->
     <div class="tool-hint" v-if="tool === 'eyedropper'">
-      💡 吸色笔模式：点击任意格子吸取颜色，然后切换回画笔使用
+      吸色笔模式：点击任意格子吸取颜色，然后切换回画笔使用
     </div>
 
     <!-- 像素画板 -->
@@ -70,11 +70,11 @@
       </div>
     </div>
 
-    <p class="hint">💡 提示：吸色笔点击格子取色，然后切换回画笔继续绘制</p>
+    <p class="hint">提示：吸色笔点击格子取色，然后切换回画笔继续绘制</p>
 
     <!-- 调色盘 -->
     <div class="color-palette">
-      <div class="palette-title">🎨 调色盘</div>
+      <div class="palette-title">调色盘</div>
       <div class="colors-grid">
         <div 
           v-for="color in presetColors" 
@@ -114,6 +114,8 @@
   padding: 32px;
   width: 100%;
   max-width: none;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pixel-title {
@@ -141,6 +143,8 @@
   padding: 12px;
   background: #f9fafb;
   border-radius: 20px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tool-group {
@@ -157,12 +161,16 @@
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tool-btn.active {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
-  border-color: #6366f1;
+  border-color: #A9C9C4;
+  box-shadow: inset -3px -3px 6px #A9C9C4,
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tool-btn:hover:not(.active) {
@@ -207,6 +215,8 @@
   border-radius: 20px;
   margin: 16px 0;
   max-height: 600px;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pixel-canvas {
@@ -214,6 +224,8 @@
   flex-direction: column;
   background: white;
   flex-shrink: 0;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pixel-row {
@@ -235,6 +247,8 @@
   border-radius: 20px;
   padding: 16px;
   margin: 20px 0;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .palette-title {
@@ -258,6 +272,8 @@
   cursor: pointer;
   transition: all 0.2s;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .color-option:hover {
@@ -331,6 +347,8 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary:hover {
@@ -338,7 +356,7 @@
 }
 
 .btn-primary {
-  background: #6366f1;
+  background: #A9C9C4;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -346,10 +364,12 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #A9C9C4;
 }
 </style>
 
@@ -380,8 +400,8 @@ const pixelSize = computed(() => canvasSize / displaySize)
 const pixels = ref([])
 
 // 当前颜色
-const selectedColor = ref('#FF6B6B')
-const customColor = ref('#FF6B6B')
+const selectedColor = ref('#A9C9C4')
+const customColor = ref('#A9C9C4')
 
 // 预设颜色
 const presetColors = [

@@ -129,6 +129,8 @@
   border-radius: 12px;
   cursor: pointer;
   font-size: 14px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .books-grid {
@@ -145,6 +147,8 @@
   transition: all 0.2s;
   border: 1px solid #e5e7eb;
   position: relative;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .book-card:hover {
@@ -160,6 +164,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cover-placeholder {
@@ -220,6 +226,8 @@
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .book-card:hover .delete-btn {
@@ -241,11 +249,15 @@
   cursor: pointer;
   margin-bottom: 16px;
   transition: all 0.2s;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .upload-area:hover {
   border-color: #A9C9C4;
   background: #f9fafb;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .upload-icon, .file-icon {
@@ -366,7 +378,7 @@
 }
 
 .save-progress-btn {
-  background: #10b981;
+  background: #A9C9C4;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -401,7 +413,7 @@
 
 .download-btn {
   margin-top: 16px;
-  background: #A9C9C4;
+  background: #614A44;
   color: white;
   border: none;
   padding: 10px 20px;

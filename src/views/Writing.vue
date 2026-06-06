@@ -116,6 +116,9 @@
   padding: 16px;
   border: 1px solid #e5e7eb;
   min-width: 100px;
+  background: #F9EDD7;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .scene-btn {
@@ -130,20 +133,26 @@
   cursor: pointer;
   transition: all 0.2s;
   font-family: inherit;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .scene-btn:hover {
-  background: #f3f4f6;
+  background: #fff8f1;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.8),
+             2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .scene-btn.active {
-  background: #F9EDD7;
+  background: #614A44;
   color: white;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .scene-icon {
   font-size: 24px;
-  background: linear-gradient(135deg, #A9C9C4, #A9C9C4);
+  background: linear-gradient(135deg, #A9C9C4, #e8e4dd);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -152,7 +161,7 @@
 .scene-name {
   font-size: 12px;
   font-weight: 550;
-  color: #6b7280;
+  color: #93a7a4;
 }
 
 /* 右侧写作表单 */
@@ -161,7 +170,9 @@
   background: white;
   border-radius: 24px;
   padding: 28px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #ffffff;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .title-input {
@@ -172,11 +183,16 @@
   border-bottom: 2px solid #e5e7eb;
   padding: 8px 0;
   margin-bottom: 20px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .title-input:focus {
   outline: none;
-  border-bottom-color: #F9EDD7;
+  background: #f7f7f7;
+  border-bottom-color: #f7f7f7;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .content-textarea {
@@ -186,10 +202,15 @@
   border: none;
   padding: 8px 0;
   resize: vertical;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .content-textarea:focus {
   outline: none;
+  background: #f7f7f7;
+  box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+            inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-actions {
@@ -217,19 +238,27 @@
 .btn-success {
   background: #A9C9C4;
   color: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px #A9C9C4;
 }
 
 .btn-success:hover {
   background: #614A44;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.8),
+             2px 2px 5px #614A44;
 }
 
 .btn-purple {
   background: #614A44;
   color: white;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+             5px 5px 10px #614A44;
 }
 
 .btn-purple:hover {
   background: #A9C9C4;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.8),
+             2px 2px 5px #A9C9C4;
 }
 
 /* 响应式：小屏幕时竖条菜单变横向 */
