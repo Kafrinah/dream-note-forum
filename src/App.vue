@@ -136,24 +136,10 @@
   color: transparent;
 }
 
-/* 小窗口时隐藏「灵感」链接 */
-@media (max-width: 680px) {
-  .hide-on-small {
-    display: none;
-  }
-}
-
-/* 更小时隐藏更多链接 */
-@media (max-width: 550px) {
-  .nav-links a:nth-child(3) {
-    display: none;  /* 隐藏论坛 */
-  }
-}
-
 /* ========== 下拉菜单 ========== */
 .dropdown {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .dropdown-trigger {
@@ -225,13 +211,37 @@
 @media (max-width: 768px) {
   .nav-inner {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    order: 1;  /* 最前面 */
+    flex: 1;
+    justify-content: flex-start;
+    gap: 3px;
   }
   
-  .nav-links {
-    flex: 1;
-    justify-content: flex-end;
+  .logo {
+    order: 2;  /* 在后面 */
+    gap: 0;
   }
+
+  .nav-user {
+    order: 3;
+  }
+
+@media (max-width: 768px) {
+  .logo span {
+    display: none;
+  }
+  
+  .logo {
+    gap: 0;
+  }
+}
   
   .dropdown {
     position: relative;

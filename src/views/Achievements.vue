@@ -162,6 +162,37 @@
             inset 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* 手机端成就卡片适配 */
+@media (max-width: 490px) {
+  .achievement-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .achievement-icon {
+    font-size: 36px;
+  }
+  
+  .achievement-info {
+    text-align: center;
+  }
+  
+  .achievement-action {
+    min-width: auto;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .reward-badge {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 .achievement-card.unlocked {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
   border-color: #fef3f1;

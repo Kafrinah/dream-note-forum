@@ -154,6 +154,13 @@
   flex-wrap: wrap;
 }
 
+.tool-btn,
+.control-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+}
+
 .tool-btn {
   padding: 10px 20px;
   font-size: 14px;

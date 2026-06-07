@@ -26,18 +26,16 @@
         :key="entry.id" 
         class="card entry-card"
       >
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div style="flex: 1; cursor: pointer;" @click="viewDetail(entry)">
-            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 8px;">{{ entry.title }}</h3>
-            <div style="display: flex; gap: 16px; margin-bottom: 12px; color: #6b7280; font-size: 14px;">
+        <div class="card-row">
+          <div class="card-content" @click="viewDetail(entry)">
+            <h3 class="card-title">{{ entry.title }}</h3>
+            <div class="card-meta">
               <span>{{ getSceneIcon(entry.type) }} {{ getSceneName(entry.type) }}</span>
               <span>{{ formatDate(entry.created_at) }}</span>
             </div>
-            <p style="color: #4b5563; line-height: 1.5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-              {{ getPreview(entry.content) }}
-            </p>
+            <p class="card-preview">{{ getPreview(entry.content) }}</p>
           </div>
-          <div style="display: flex; gap: 8px;">
+          <div class="card-actions">
             <button @click.stop="publishToForum(entry)" class="publish-btn">发布到论坛</button>
             <button @click.stop="deleteEntry(entry.id)" class="delete-btn">删除</button>
           </div>
@@ -141,6 +139,61 @@
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 卡片行布局 */
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  color: #6b7280;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.card-preview {
+  color: #4b5563;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+
+/* 重置按钮样式 */
+.publish-btn,
+.delete-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
 }
 
 .publish-btn {
